@@ -19,7 +19,7 @@ private:
     
     static uint64_t LastTime;
     static uint64_t CurrentTime;
-    static uint64_t ElapsedTimeInMS;
+    static uint64_t ElapsedTime;
 
     
 public:
@@ -32,9 +32,9 @@ public:
     ~GameClock();
     
     
-    double GetElapsedTimeInMS()
+    uint64_t GetElapsedTimeInMS()
     {
-        return ElapsedTimeInMS;
+        return ElapsedTime;
     };
     
     
