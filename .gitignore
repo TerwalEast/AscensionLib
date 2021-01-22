@@ -1,5 +1,9 @@
 # XcodeProject
 xcuserdata/
+project.pbxproj/
+project.xcworkspace/
+AscensionLib.xcodeproj
+
 .DS_Store
 
 # Prerequisites
