@@ -22,14 +22,22 @@ public:
     
     
 private:
-    struct _transform
+    struct transform
     {
-        double positionX;
-        double positionY;
-    };
+        SDL_Point position;
+        
+        double rotate;
+        double scale;
+        
+    }_transform;
     
     
     
+    
+    void _transformSwitch()
+    {
+        _transform.position.x = 100;
+    }
     
     
 };

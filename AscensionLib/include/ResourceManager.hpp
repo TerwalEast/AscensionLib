@@ -45,4 +45,8 @@ void Game::_initRelativePaths() {
 
 
 
+
+
+
+
 #endif /* ResourceManager_hpp */

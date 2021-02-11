@@ -29,6 +29,7 @@ public:
     
     
     GameClock();
+    
     ~GameClock();
     
     
@@ -36,6 +37,8 @@ public:
     {
         return ElapsedTime;
     };
+    
+    uint64_t GetElapsedTimeInNS();
     
     
     

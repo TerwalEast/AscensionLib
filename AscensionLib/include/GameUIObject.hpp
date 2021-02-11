@@ -19,16 +19,7 @@
 class GameUIObject : GameVisibleObject
 {
     
-public:
-    virtual void Draw();
-    
-    
-private:
-    struct _transform
-    {
-        double positionX;
-        double positionY;
-    };
+
     
     
     
