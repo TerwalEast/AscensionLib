@@ -29,6 +29,7 @@ private:
         double rotate;
         double scale;
         
+        
     }_transform;
     
     
