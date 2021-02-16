@@ -21,7 +21,8 @@ Please note that texture should be used to store 2^ size graphic resources, othe
 
 class AL_Texture
 {
-    //SDL_Texture targetTexture;
+    SDL_Texture *targetTexture;
+    
     
     
     

@@ -17,12 +17,14 @@ class GameClock
     
 private:
     
-    static uint64_t LastTime;
-    static uint64_t CurrentTime;
-    static uint64_t ElapsedTime;
+    static double_t LastTime;
+    static double_t CurrentTime;
+    static double_t SystemFrequency;
+    static double_t ElapsedTime;
 
     
 public:
+    
     
     
     void UpdateTime();
@@ -33,12 +35,12 @@ public:
     ~GameClock();
     
     
-    uint64_t GetElapsedTimeInMS()
+    double_t GetElapsedTime()
     {
         return ElapsedTime;
     };
     
-    uint64_t GetElapsedTimeInNS();
+
     
     
     

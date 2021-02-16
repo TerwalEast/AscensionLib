@@ -211,12 +211,12 @@ int main( int argc, char* args[] )
                 
                 //Random screen alpha
                 localClock->UpdateTime();
-                timeStack += localClock->GetElapsedTimeInMS();
-                if(timeStack > 10 * 1000) timeStack -= (10 * 1000);
+                timeStack += localClock->GetElapsedTime();
+                if(timeStack > 10 ) timeStack -= (10 );
                 
                 std::cout << "time: " << timeStack << std::endl;
                 
-                alpha = floor(timeStack / 10000.0 * 255);
+                alpha = floor(timeStack / 10.0 * 255);
                 
                 
                 SDL_SetTextureAlphaMod(gTexture, alpha);
