@@ -26,7 +26,8 @@ private:
 public:
     
     
-    
+
+    //更新当前的时间，并获得一个新的ElapsedTime（两帧之间经过时间）
     void UpdateTime();
     
     
