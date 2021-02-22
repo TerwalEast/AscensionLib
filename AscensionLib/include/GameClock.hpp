@@ -17,9 +17,9 @@ class GameClock
     
 private:
     
-    static double_t LastTime;
-    static double_t CurrentTime;
-    static double_t SystemFrequency;
+    static uint64_t LastTime;
+    static uint64_t CurrentTime;
+    static uint64_t SystemFrequency;
     static double_t ElapsedTime;
 
     

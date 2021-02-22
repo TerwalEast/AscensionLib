@@ -40,24 +40,29 @@
 
 
 
-double_t GameClock::CurrentTime;
-double_t GameClock::LastTime;
+uint64_t GameClock::CurrentTime;
+uint64_t GameClock::LastTime;
 double_t GameClock::ElapsedTime;
-double_t GameClock::SystemFrequency;
+uint64_t GameClock::SystemFrequency;
 
 GameClock :: GameClock()
 {
     SystemFrequency = SDL_GetPerformanceFrequency();
     LastTime = 0;
+    UpdateTime();
 }
 
 
 void GameClock :: UpdateTime()
 {
     CurrentTime = SDL_GetPerformanceCounter();
-    ElapsedTime = (CurrentTime - LastTime) / SystemFrequency;
+    ElapsedTime = (double)(CurrentTime - LastTime) / (double)SystemFrequency;
     LastTime = CurrentTime;
 };
 
+GameClock :: ~GameClock()
+{
+    
+}
 
 

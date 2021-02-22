@@ -35,11 +35,7 @@ private:
     
     
     
-    void _transformSwitch()
-    {
-        _transform.position.x = 100;
-    }
-    
+
     
 };
 

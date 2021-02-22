@@ -8,12 +8,12 @@
 
 #include <iostream>
 
-#include "include/STG.hpp"
-#include <unistd.h>
-#include "include/GameClock.hpp"
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+#include <string>
+#include "GameManager.hpp"
+
+const int SCREEN_WIDTH = 612;
+const int SCREEN_HEIGHT = 612;
 
 
 
@@ -36,11 +36,43 @@ SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 
 //Current displayed texture
-SDL_Texture* gTexture = NULL;
+SDL_Texture* gSplashTexture = NULL;
+SDL_Texture* gBoardTexture = NULL;
+SDL_Texture* gPieceTexture = NULL;
 
 //时钟
 GameClock *localClock = NULL;
 
+//游戏本体
+GameManager *gGameManager = NULL;
+
+
+
+int main( int argc, char* args[] )
+{
+
+    
+    //游戏模块初始化
+    localClock = new GameClock();
+    
+    gGameManager = new GameManager();
+    gGameManager->InitGame();
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+/*
 bool init()
 {
     //Initialization flag
@@ -48,9 +80,9 @@ bool init()
 
     //初始化时钟
     localClock = new GameClock();
-    
-    
-    //Initialize SDL
+
+
+    //初始化 SDL
     if( SDL_Init( SDL_INIT_EVERYTHING ) < 0 )
     {
         printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
@@ -99,29 +131,29 @@ bool init()
     return success;
 }
 
-bool loadMedia()
+bool loadMedia(SDL_Texture *targetTexture,std::string path)
 {
     //Loading success flag
     bool success = true;
 
     //Load PNG texture
-    gTexture = loadTexture(  "/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/EoSD/th06logo.jpg");
-    if( gTexture == NULL )
+    targetTexture = loadTexture(path);
+    if( targetTexture == NULL )
     {
         printf( "Failed to load texture image!\n" );
         success = false;
     }
 
-    SDL_SetTextureBlendMode(gTexture, SDL_BLENDMODE_BLEND);
-    
+    SDL_SetTextureBlendMode(targetTexture, SDL_BLENDMODE_BLEND);
+
     return success;
 }
 
 void close()
 {
     //Free loaded image
-    SDL_DestroyTexture( gTexture );
-    gTexture = NULL;
+    SDL_DestroyTexture( gBoardTexture );
+    gBoardTexture = NULL;
 
     //Destroy window
     SDL_DestroyRenderer( gRenderer );
@@ -163,9 +195,9 @@ SDL_Texture* loadTexture( std::string path )
 
 int main( int argc, char* args[] )
 {
-    
+
     srand((unsigned)time(NULL));
-    
+
     //Start up SDL and create window
     if( !init() )
     {
@@ -174,9 +206,12 @@ int main( int argc, char* args[] )
     else
     {
         //Load media
-        if( !loadMedia() )
+        if( !loadMedia(gSplashTexture,"/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/EoSD/th06logo.jpg")
+           || !loadMedia(gBoardTexture,"/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/Aeroplane/unnamed.png"))
         {
             printf( "Failed to load media!\n" );
+            close();
+            exit(0);
         }
         else
         {
@@ -189,7 +224,10 @@ int main( int argc, char* args[] )
             //While application is running
             int alpha;
             double timeStack = 0;
-            
+
+            localClock->UpdateTime();
+            localClock->GetElapsedTime();
+
             while( !quit )
             {
                 //Handle events on queue
@@ -208,27 +246,76 @@ int main( int argc, char* args[] )
                 SDL_Rect fillRect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
                 SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0xFF );
                 SDL_RenderFillRect( gRenderer, &fillRect );
-                
-                //Random screen alpha
+
                 localClock->UpdateTime();
                 timeStack += localClock->GetElapsedTime();
-                if(timeStack > 10 ) timeStack -= (10 );
-                
+
+
                 std::cout << "time: " << timeStack << std::endl;
-                
-                alpha = floor(timeStack / 10.0 * 255);
-                
-                
-                SDL_SetTextureAlphaMod(gTexture, alpha);
-                
+
+                alpha = floor(timeStack / 3 * 255);
+
+
+                SDL_SetTextureAlphaMod(gSplashTexture, alpha);
+
                 std::cout << alpha << std::endl;
-                
+
                 //Render texture to screen
-                SDL_RenderCopy( gRenderer, gTexture, NULL, NULL );
+                SDL_RenderCopy( gRenderer, gSplashTexture, NULL, NULL );
 
                 //Update screen
                 SDL_RenderPresent( gRenderer );
+
+                if(timeStack >= 3 )break;
+
+
+
+
             }
+
+            timeStack = 0;
+            localClock->UpdateTime();
+            localClock->GetElapsedTime();
+            while(timeStack <= 1)
+            {
+
+                localClock->UpdateTime();
+                localClock->GetElapsedTime();
+                timeStack += localClock->GetElapsedTime();
+
+
+            }
+
+            //淡出
+            timeStack = 0;
+            localClock->UpdateTime();
+            localClock->GetElapsedTime();
+
+            while(timeStack <= 3)
+            {
+                SDL_RenderClear( gRenderer );
+                localClock->UpdateTime();
+                timeStack += localClock->GetElapsedTime();
+                alpha = floor(timeStack / 3 * 255);
+
+
+                SDL_SetTextureAlphaMod(gSplashTexture, alpha);
+
+                std::cout << alpha << std::endl;
+
+                //Render texture to screen
+                SDL_RenderCopy( gRenderer, gSplashTexture, NULL, NULL );
+
+                //Update screen
+                SDL_RenderPresent( gRenderer );
+
+            }
+
+
+
+
+
+
         }
     }
 
@@ -237,3 +324,5 @@ int main( int argc, char* args[] )
 
     return 0;
 }
+ 
+ */
