@@ -187,14 +187,7 @@ void GameManager :: _splashLoop()
 void GameManager :: _gameLoop()
 {
     std::cout << "Game On" << std::endl;
-    
-    int positions[4] = {0,1,2,3};
-    
-    int choice;
-    
-    int diceRoll;
-    
-    bool quit = false;
+
     SDL_Event e;
     
     SDL_RenderClear(_mainRenderer);
@@ -203,9 +196,7 @@ void GameManager :: _gameLoop()
     
     SDL_RenderPresent(_mainRenderer);
     
-    bool haveFlyingPiece = false;
-    
-    SDL_Rect *RenderRect = new SDL_Rect;
+    bool quit = false;
     
     while(!quit)
     {
@@ -218,67 +209,7 @@ void GameManager :: _gameLoop()
             }
         }
         
-        diceRoll = rand()%6 + 1;
         
-        
-        cout << "骰子结果：" << diceRoll << endl;
-        cout << "移动哪一个棋子？" << endl;
-        cin >> choice;
-        
-        if( !haveFlyingPiece && diceRoll != 6)
-        {
-            cout << endl;
-            cout << "但你没棋子可飞....." << endl;
-            continue;
-        }
-        
-        
-        while(1)
-        {
-            cout << "移动哪一个棋子？" << endl;
-            cin >> choice;
-            if(positions[choice] < 4 && diceRoll != 6)
-            {
-                cout << "但它还没起飞！" << endl;
-                continue;
-            }
-            else if(diceRoll == 6 && positions[choice] < 4)
-            {
-                cout << "起飞！" << endl;
-                positions[choice] = _chessBoard.GetNextPoint(positions[choice]);
-                break;
-            }
-            else
-            {
-                for(int i = 0; i < diceRoll; i++)
-                {
-                    positions[choice] = _chessBoard.GetNextPoint(positions[choice]);
-                }
-                break;
-            }
-            
-            
-        }
-        
-
-        //渲染
-        SDL_RenderClear(_mainRenderer);
-        SDL_RenderCopy(_mainRenderer, _chessBoardTexture, NULL, NULL);
-        
-        for(int i = 0; i < 4; i++)
-        {
-            RenderRect->x = _chessBoard.GetGridPoint(positions[choice]).x - 8;
-            RenderRect->y = _chessBoard.GetGridPoint(positions[choice]).y - 8;
-            RenderRect->h = 16;
-            RenderRect->w = 16;
-            
-            SDL_RenderCopy(_mainRenderer, _pieceTexture, NULL, RenderRect);
-        }
-        
-        
-        
-        
-        SDL_RenderPresent(_mainRenderer);
         
         
         

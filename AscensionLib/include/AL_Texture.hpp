@@ -24,17 +24,29 @@ class AL_Texture
 {
 public:
     
-    SDL_Texture *_targetTexture;
-    SDL_Renderer *_targetRenderer;
-    
+    //构造
     AL_Texture();
+    
+    //析构
     ~AL_Texture();
     
+    //从文件中读取材质
     void Load(std::string path);
+    
+    //摧毁这个材质类，释放它占用的空间
     void Destroy();
     
+    //渲染方法，指定左上角坐标系
+    void Render(float x, float y);
+    
+    void Render(float x, float y, float width, float height);
     
     
+    
+private:
+    
+    //被封装的实际SDL材质
+    SDL_Texture *_targetTexture;
     
     
 };
