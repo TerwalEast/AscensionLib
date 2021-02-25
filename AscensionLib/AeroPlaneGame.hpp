@@ -12,8 +12,8 @@
 #include <stdio.h>
 #include "include/STG.hpp"
 #include <unistd.h>
-#include "include/GameClock.hpp"
-#include "include/GameVisibleObject.hpp"
+#include "include/AL_GameClock.hpp"
+#include "include/AL_VisibleObject.hpp"
 #include "include/AL_Texture.hpp"
 
 

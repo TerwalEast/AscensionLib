@@ -6,7 +6,7 @@
 //  Copyright © 2021 Terwal. All rights reserved.
 //
 
-#include "../include/GameVisibleObject.hpp"
+#include "../include/AL_VisibleObject.hpp"
 
 
 

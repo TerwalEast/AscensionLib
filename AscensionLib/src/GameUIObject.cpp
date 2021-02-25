@@ -6,8 +6,8 @@
 //  Copyright © 2021 TeamAscension. All rights reserved.
 //
 
-#include "../include/GameUIObject.hpp"
+#include "../include/AL_GUI.hpp"
 
 
-#include "../include/GameVisibleObject.hpp"
+#include "../include/AL_VisibleObject.hpp"
 

@@ -1,10 +1,4 @@
-//
-//  STG.hpp
-//  STG_Demo
-//
-//  Created by shan on 2021/1/17.
-//  Copyright © 2021 Terwal. All rights reserved.
-//
+
 
 #ifndef STG_hpp
 #define STG_hpp

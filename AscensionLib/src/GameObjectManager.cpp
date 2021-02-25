@@ -6,4 +6,4 @@
 //  Copyright © 2021 Terwal. All rights reserved.
 //
 
-#include "../include/GameObjectManager.hpp"
+#include "../include/AL_GameObjectManager.hpp"

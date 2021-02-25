@@ -41,7 +41,7 @@ SDL_Texture* gBoardTexture = NULL;
 SDL_Texture* gPieceTexture = NULL;
 
 //时钟
-GameClock *localClock = NULL;
+AL_GameClock *localClock = NULL;
 
 //游戏本体
 GameManager *gGameManager = NULL;
@@ -53,7 +53,7 @@ int main( int argc, char* args[] )
 
     
     //游戏模块初始化
-    localClock = new GameClock();
+    localClock = new AL_GameClock();
     
     gGameManager = new GameManager();
     gGameManager->InitGame();

@@ -25,7 +25,7 @@ public:
     static void InitGame();
     static SDL_Window& GetWindow();
     static SDL_Renderer& GetRenderer();
-    static GameObjectManager& GetGameObjectManager();
+    static AL_GameObjectManager& GetGameObjectManager();
     GameManager();
     ~GameManager();
 
@@ -43,7 +43,7 @@ private:
     static GameState _gameState;
     static SDL_Window* _mainWindow;
     static SDL_Renderer* _mainRenderer;
-    static GameClock _localClock;
+    static AL_GameClock _localClock;
     
     
     enum gameStatus{ init, playing, onturn};

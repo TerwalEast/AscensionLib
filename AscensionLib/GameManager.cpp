@@ -17,7 +17,7 @@
 using namespace std;
 
 GameManager :: GameState GameManager :: _gameState;
-GameClock GameManager :: _localClock;
+AL_GameClock GameManager :: _localClock;
 ChessBoard GameManager::_chessBoard;
 SDL_Window* GameManager :: _mainWindow;
 SDL_Renderer* GameManager :: _mainRenderer;
