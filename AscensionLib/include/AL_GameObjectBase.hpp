@@ -11,12 +11,15 @@
 
 #include "STG.hpp"
 
-class GameObjectBase
+class AL_GameObjectBase
 {
 public:
-    GameObjectBase();
-    virtual ~GameObjectBase();
-    virtual void Update(uint64_t elapsedTimeInMS);
+    
+    AL_GameObjectBase();
+    
+    virtual ~AL_GameObjectBase();
+    
+    virtual void Update();
     
     
 private:

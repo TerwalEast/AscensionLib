@@ -11,16 +11,16 @@
 
 #include "STG.hpp"
 #include <vector>
-#include "GameObjectBase.hpp"
+#include "AL_GameObjectBase.hpp"
 
 using namespace std;
 
-class GameObjectManager
+class AL_GameObjectManager
 {
     
 public:
     
-    vector<GameObjectBase> _objects;
+    vector<AL_GameObjectBase> _objects;
     
 private:
     

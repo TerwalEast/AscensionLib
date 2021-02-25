@@ -10,13 +10,13 @@
 #define GameUIObject_hpp
 
 #include "STG.hpp"
-#include "GameVisibleObject.hpp"
+#include "AL_VisibleObject.hpp"
 
 
 
 
 
-class GameUIObject : GameVisibleObject
+class AL_GUI : AL_VisibleObject
 {
     
 

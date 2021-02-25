@@ -10,11 +10,11 @@
 #define gameVisibleObject_hpp
 
 #include "STG.hpp"
-#include "GameObjectManager.hpp"
+#include "AL_GameObjectManager.hpp"
+#include "Util.hpp"
 
 
-
-class GameVisibleObject : GameObjectBase
+class AL_VisibleObject : AL_GameObjectBase
 {
     
 public:
@@ -22,15 +22,7 @@ public:
     
     
 private:
-    struct transform
-    {
-        SDL_Point position;
-        
-        double rotate;
-        double scale;
-        
-        
-    }_transform;
+    
     
     
     
