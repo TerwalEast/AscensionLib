@@ -22,7 +22,7 @@ public:
     
     
     
-    
+    friend class AL_GameObjectBase;
     
 private:
     

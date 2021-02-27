@@ -15,10 +15,12 @@
 
 enum RenderMode
 {
-    IsDisabled = 1;
-    SimpleCulling = 2;
+    IsDisabled = 1,
+    SimpleCulling = 2
     
-}
+};
+
+
 
 
 
@@ -26,7 +28,7 @@ class AL_VisibleObject : AL_GameObjectBase
 {
     
 public:
-    virtual void Draw();
+
     
     
 private:
