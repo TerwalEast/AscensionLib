@@ -58,6 +58,7 @@ int main( int argc, char* args[] )
     gGameManager = new GameManager();
     gGameManager->InitGame();
     
+    SDL_Point poin;
     
     
     

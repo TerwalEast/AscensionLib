@@ -13,6 +13,14 @@
 #include "AL_GameObjectManager.hpp"
 #include "Util.hpp"
 
+enum RenderMode
+{
+    IsDisabled = 1;
+    SimpleCulling = 2;
+    
+}
+
+
 
 class AL_VisibleObject : AL_GameObjectBase
 {
@@ -24,7 +32,7 @@ public:
 private:
     
     
-    
+    RenderMode _renderMode;
     
     
 

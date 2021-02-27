@@ -14,6 +14,11 @@
 
 class AL_Window
 {
+public:
+    
+    AL_Window();
+    
+    ~AL_Window();
     
     
     
@@ -21,11 +26,12 @@ class AL_Window
     
 private:
     
-    SDL_Window* _window;
-    SDL_Renderer* _renderer;
+    static SDL_Window* _window;
+    static SDL_Renderer* _renderer;
     
+    static void free();
     
-}
+};
 
 
 

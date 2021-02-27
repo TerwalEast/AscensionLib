@@ -11,5 +11,5 @@
 
 
 
-SDL_Point AL_Camera::_cameraPosition;
+AL_Point AL_Camera::_cameraPosition;
 

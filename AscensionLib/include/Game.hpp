@@ -18,7 +18,6 @@ class Game
 public:
     
     
-    
     static void InitGame();
     static SDL_Window& GetWindow();
     static SDL_Renderer& GetRenderer();

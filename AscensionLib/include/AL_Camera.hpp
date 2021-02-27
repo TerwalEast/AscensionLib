@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "STG.hpp"
-
+#include "Util.hpp"
 
 class AL_VisibleObject;
 
@@ -31,10 +31,10 @@ class AL_Camera
 public:
     
     //构造
-    Camera();
+    AL_Camera();
     
     //析构
-    ~Camera();
+    ~AL_Camera();
     
     //设置摄像机移动的目标点
     void SetCameraDestination(float x, float y, CameraMovementMethod cameraMovementMethod);
@@ -50,9 +50,16 @@ public:
     
 private:
     
-    //摄像机的现在位置
-    SDL_Point _cameraPosition;
+    //摄像机的现在中心位置
+    static AL_Point _cameraPosition;
     
+    //现在设置的摄像机移动方式
+    static CameraMovementMethod _currentMovementMethod;
+    
+    //移动目标
+    static AL_Point _movementTarget;
+    
+    double_t rotate;
     
     
     

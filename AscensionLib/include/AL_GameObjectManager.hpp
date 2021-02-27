@@ -20,9 +20,19 @@ class AL_GameObjectManager
     
 public:
     
+    AL_GameObjectManager();
+    ~AL_GameObjectManager();
+    
+    
     vector<AL_GameObjectBase> _objects;
     
 private:
+    
+    
+    void handleInput();
+    void handle();
+    
+    
     
     
 };

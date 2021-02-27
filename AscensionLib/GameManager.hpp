@@ -17,10 +17,13 @@
 class Player;
 class ChessBoard;
 
+class Splash;
 
 class GameManager
 {
 public:
+    
+
     
     static void InitGame();
     static SDL_Window& GetWindow();
@@ -28,6 +31,8 @@ public:
     static AL_GameObjectManager& GetGameObjectManager();
     GameManager();
     ~GameManager();
+    
+    friend class Splash;
 
 private:
     
