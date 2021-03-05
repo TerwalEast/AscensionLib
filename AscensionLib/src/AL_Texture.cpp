@@ -11,7 +11,7 @@
 
 
 
-void AL_Texture :: Load(std::string path)
+void AL_Texture::Load(std::string path)
 {
     //Load image at specified path
     SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
@@ -22,7 +22,7 @@ void AL_Texture :: Load(std::string path)
     }
     //Create texture from surface pixels
     //_targetTexture = SDL_CreateTextureFromSurface( loadedSurface );
-    if( _targetTexture == NULL )
+    if( _pTargetTexture == NULL )
     {
         printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
     }
@@ -32,9 +32,9 @@ void AL_Texture :: Load(std::string path)
     
 }
 
-void AL_Texture :: Destroy()
+void AL_Texture::Destroy()
 {
-    SDL_DestroyTexture(_targetTexture);
+    SDL_DestroyTexture(_pTargetTexture);
     
     
 }

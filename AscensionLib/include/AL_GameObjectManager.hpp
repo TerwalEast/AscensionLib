@@ -24,6 +24,7 @@ public:
     ~AL_GameObjectManager();
     
     
+    
     vector<AL_GameObjectBase> _objects;
     
 private:

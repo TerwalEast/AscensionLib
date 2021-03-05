@@ -26,8 +26,7 @@ public:
 
     
     static void InitGame();
-    static SDL_Window& GetWindow();
-    static SDL_Renderer& GetRenderer();
+    static AL_Window& GetWindow();
     static AL_GameObjectManager& GetGameObjectManager();
     GameManager();
     ~GameManager();
@@ -46,8 +45,7 @@ private:
     enum GameState { Uninitialized, ShowingSplash, ShowingMenu, Playing, Exiting };
 
     static GameState _gameState;
-    static SDL_Window* _mainWindow;
-    static SDL_Renderer* _mainRenderer;
+    static AL_Window _gameWindow;
     static AL_GameClock _localClock;
     
     
@@ -55,18 +53,9 @@ private:
     
     static gameStatus GameStatus;
     
-    std::vector<Player> _playerList;
-    static ChessBoard _chessBoard;
+
     
-    static SDL_Texture* _chessBoardTexture;
-    static SDL_Texture* _splashTexture;
-    static SDL_Texture* _pieceTexture;
-    
-    
-    static SDL_Texture* _loadTexture(std::string path);
-    
-    
-    static int _rollDice();
+    int _rollDice();
     
 
     

@@ -29,6 +29,7 @@ void Splash::SplashLoop()
     
     
     
+    
     GameManager::_gameState = GameManager::Playing;
 }
 

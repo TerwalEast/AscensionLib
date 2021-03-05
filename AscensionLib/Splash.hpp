@@ -10,7 +10,6 @@
 #define Splash_hpp
 
 #include <stdio.h>
-#include "Util.hpp"
 #include "AeroPlaneGame.hpp"
 
 class Splash
@@ -18,6 +17,7 @@ class Splash
 public:
     
     Splash();
+    
     ~Splash();
     
     void SplashLoop();

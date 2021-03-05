@@ -10,6 +10,8 @@
 #define game_hpp
 
 #include "STG.hpp"
+#include "Util.hpp"
+#include "AL_Window.hpp"
 
 class AL_GameObjectManager;
 
@@ -19,25 +21,13 @@ public:
     
     
     static void InitGame();
-    static SDL_Window& GetWindow();
-    static SDL_Renderer& GetRenderer();
+    static AL_Window& GetWindow();
     static AL_GameObjectManager& GetGameObjectManager();
     
 
 private:
-    static bool _closeGame();
-    static void _mainLoop();
-    //static void _initRelativePaths();
-//    static void ShowSplashScreen();
-//    static void ShowMenu();
-
-    enum GameState { Uninitialized, ShowingSplash, Paused,
-                    ShowingMenu, Playing, Exiting };
-
     
-    static GameState _gameState;
-    static SDL_Window _mainWindow;
-    static SDL_Renderer _mainRenderer;
+    static AL_Window _gameWindow;
     static AL_GameObjectManager _gameObjectManager;
     
     

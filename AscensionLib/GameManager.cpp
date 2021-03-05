@@ -19,41 +19,8 @@ using namespace std;
 
 GameManager :: GameState GameManager :: _gameState;
 AL_GameClock GameManager :: _localClock;
-ChessBoard GameManager::_chessBoard;
-SDL_Window* GameManager :: _mainWindow;
-SDL_Renderer* GameManager :: _mainRenderer;
-SDL_Texture* GameManager :: _splashTexture;
-SDL_Texture* GameManager :: _chessBoardTexture;
-SDL_Texture* GameManager::_pieceTexture;
 
-SDL_Texture* GameManager :: _loadTexture( std::string path )
-{
-    //The final texture
-    SDL_Texture* newTexture = NULL;
 
-    //Load image at specified path
-    SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
-    if( loadedSurface == NULL )
-    {
-        printf( "Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError() );
-    }
-    else
-    {
-        //Create texture from surface pixels
-        newTexture = SDL_CreateTextureFromSurface( _mainRenderer, loadedSurface );
-        if( newTexture == NULL )
-        {
-            printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
-        }
-
-        //Get rid of old loaded surface
-        SDL_FreeSurface( loadedSurface );
-    }
-
-    SDL_SetTextureBlendMode(newTexture, SDL_BLENDMODE_BLEND);
-    
-    return newTexture;
-}
 
 int _rollDice()
 {
@@ -64,6 +31,9 @@ int _rollDice()
 
 void GameManager :: _splashLoop()
 {
+    
+    
+    /*
     bool quit = false;
 
     //Event handler
@@ -89,8 +59,7 @@ void GameManager :: _splashLoop()
             }
         }
 
-        //Clear screen
-        SDL_RenderClear( _mainRenderer );
+        
 
         
         //涂个白色（0x00,0x00,0x00）不透明（0xFF）底。之前设置了Texture混合模式为Blend，这个底将会和我们的材质Blend达到渐变效果
@@ -183,10 +152,14 @@ void GameManager :: _splashLoop()
     
     _gameState = ShowingMenu;
     
+     
+     */
 }
 
 void GameManager :: _gameLoop()
 {
+    
+    /*
     std::cout << "Game On" << std::endl;
 
     SDL_Event e;
@@ -223,6 +196,8 @@ void GameManager :: _gameLoop()
     std::cout << "Reaching the end" << std::endl;
     std::cout << "Reaching the end" << std::endl;
     _gameState = Exiting;
+     
+     */
 }
 
 void GameManager :: _menuLoop()
@@ -244,7 +219,12 @@ GameManager :: ~GameManager()
 
 void GameManager :: InitGame()
 {
+    
+    _gameWindow.InitGame();
+    
+    
     //初始化SDL
+    /*
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" );
     _mainWindow = SDL_CreateWindow( "Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
@@ -279,7 +259,7 @@ void GameManager :: InitGame()
     
     
     
-    
+    */
     
 }
 

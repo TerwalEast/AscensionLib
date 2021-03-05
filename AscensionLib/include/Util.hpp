@@ -84,6 +84,44 @@ private:
 };
 
 
+class AL_Rectangle
+{
+public:
+    
+    double_t x;
+    double_t y;
+    double_t width;
+    double_t height;
+    
+    
+    AL_Rectangle()
+    {
+        
+    };
+    
+    AL_Rectangle(double_t x, double_t y, double_t width, double_t height)
+    {
+        this->x = x;
+        this->y = y;
+        this->width = width;
+        this->height = height;
+    };
+    
+    ~AL_Rectangle()
+    {
+        
+    };
+    
+    
+    
+    
+    
+private:
+    
+    
+    
+    
+};
 
 
 

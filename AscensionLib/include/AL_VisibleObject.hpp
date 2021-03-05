@@ -12,11 +12,12 @@
 #include "STG.hpp"
 #include "AL_GameObjectManager.hpp"
 #include "Util.hpp"
+#include "AL_Texture.hpp"
 
 enum RenderMode
 {
-    IsDisabled = 1,
-    SimpleCulling = 2
+    DisableRendering = 1,
+    Culling = 2
     
 };
 
@@ -31,8 +32,15 @@ public:
 
     
     
+    void Draw();
+    
+    
+    
 private:
     
+    AL_Texture* _pTargetTexture;
+    
+    AL_Rectangle _clipRect;
     
     RenderMode _renderMode;
     

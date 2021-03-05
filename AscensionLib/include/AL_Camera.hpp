@@ -59,7 +59,13 @@ private:
     //移动目标
     static AL_Point _movementTarget;
     
-    double_t rotate;
+    //旋转角度
+    static double_t rotate;
+    
+    //
+    static bool _hasFinishedMoving;
+    
+    
     
     
     
