@@ -19,6 +19,8 @@ class ChessBoard;
 
 class Splash;
 
+
+
 class GameManager
 {
 public:

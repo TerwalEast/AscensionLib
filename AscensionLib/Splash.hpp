@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "AeroPlaneGame.hpp"
 
-class Splash
+class Splash:AL_VisibleObject
 {
 public:
     
@@ -23,9 +23,11 @@ public:
     void SplashLoop();
     
     
+    
+    
 private:
     
-    AL_Texture _splashTexture;
+    AL_Texture* _pSplashTexture;
     
     
 };

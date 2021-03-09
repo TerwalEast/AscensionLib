@@ -11,9 +11,8 @@
 
 #include <stdio.h>
 #include "STG.hpp"
-#include <string>
 #include "Util.hpp"
-#include "AL_Camera.hpp"
+
 
 class AL_Window;
 /*
@@ -21,7 +20,7 @@ A AL_Texture is a local warped SDL_Texture, to support object-oriented programmi
 Please note that texture should be used to store 2^ size graphic resources, otherwise the graphic memory is wasted. Make atlas before loading as actual textures, and render them with clip method.
  */
 
-
+class AL_Camera;
 
 
 class AL_Texture
@@ -40,19 +39,12 @@ public:
     //摧毁这个材质类，释放它占用的空间
     void Destroy();
     
-    //直接在屏幕上渲染方法，左上角坐标系
     
     
-    void DirectRender(float x, float y);
-    
-    void DirectRender(float x, float y, AL_Rectangle clipRect);
-    
-    void DirectRender(float x, float y, float width, float height);
-    
-    void DirectRender(float x, float y, float width, float height, AL_Rectangle clipRect);
-    
-    void DirectRender(AL_Rectangle targetRect);
-    
+    //-------------------------
+    ///\brief 直接在屏幕上渲染材质。
+    //-------------------------
+
     void DirectRender(AL_Rectangle targetRect, AL_Rectangle clipRect);
     
     
@@ -78,11 +70,7 @@ private:
 };
 
 
-void AL_Texture::DirectRender(float x, float y)
-{
-    
-    
-}
+
 
 
 

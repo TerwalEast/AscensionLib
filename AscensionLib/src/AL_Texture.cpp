@@ -8,6 +8,7 @@
 
 #include "../include/AL_Texture.hpp"
 #include "../include/AL_Window.hpp"
+#include "../include/AL_Camera.hpp"
 
 
 
@@ -39,7 +40,12 @@ void AL_Texture::Destroy()
     
 }
 
-AL_Texture :: ~AL_Texture()
+AL_Texture::AL_Texture()
+{
+    
+}
+
+AL_Texture::~AL_Texture()
 {
     Destroy();
 }

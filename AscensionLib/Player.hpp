@@ -28,7 +28,7 @@ class Player
     
 public:
     //Player下辖的棋子序列。
-    vector<int> position;
+    std::vector<int> position;
     uint32_t _startingPoint;
     
     

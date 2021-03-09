@@ -10,23 +10,39 @@
 
 SDL_Window* AL_Window::_pWindow;
 SDL_Renderer* AL_Window::_pRenderer;
+bool AL_Window::_isFullScreen;
+double_t AL_Window::_height;
+double_t AL_Window::_width;
+std::string AL_Window::_headerText;
 
 
 
-void AL_Window::InitWindow()
+void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t width)
 {
     
-    SDL_Init(SDL_INIT_EVERYTHING);
+    
+    if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
+    {
+        
+        
+        
+    }
+    else
+    {
+        
+        
+    }
+    
+    
     SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" );
     
     
-    _mainWindow = SDL_CreateWindow( "Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-    _mainRenderer = SDL_CreateRenderer( _mainWindow, -1, SDL_RENDERER_ACCELERATED );
-    SDL_SetRenderDrawColor( _mainRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+    _pWindow = SDL_CreateWindow( windowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN );
+    _pRenderer = SDL_CreateRenderer( _pWindow, -1, SDL_RENDERER_ACCELERATED );
+    SDL_SetRenderDrawColor( _pRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+    
     IMG_Init( IMG_INIT_JPG | IMG_INIT_PNG );
     
-    _pWindow = SDL_CreateWindow(<#const char *title#>, <#int x#>, <#int y#>, <#int w#>, <#int h#>, <#Uint32 flags#>);
-    _pRenderer = SDL_CreateRenderer(<#SDL_Window *window#>, <#int index#>, <#Uint32 flags#>);
     
 }
 

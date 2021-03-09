@@ -15,6 +15,7 @@
 #include "include/AL_GameClock.hpp"
 #include "include/AL_VisibleObject.hpp"
 #include "include/AL_Texture.hpp"
-
+#include "include/AL_Window.hpp"
+#include "include/AL_GameObjectManager.hpp"
 
 #endif /* AeroPlaneGame_hpp */

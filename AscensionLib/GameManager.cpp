@@ -17,9 +17,11 @@
 
 using namespace std;
 
-GameManager :: GameState GameManager :: _gameState;
-AL_GameClock GameManager :: _localClock;
+GameManager::GameState GameManager::_gameState;
+AL_GameClock GameManager::_localClock;
 
+
+AL_Window GameManager::_gameWindow;
 
 
 int _rollDice()
@@ -219,8 +221,9 @@ GameManager :: ~GameManager()
 
 void GameManager :: InitGame()
 {
-    
-    _gameWindow.InitGame();
+    std::string title;
+    title = "Demo";
+    _gameWindow.InitWindow(title, 800, 600);
     
     
     //初始化SDL

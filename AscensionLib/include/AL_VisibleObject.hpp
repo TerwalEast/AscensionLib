@@ -10,9 +10,13 @@
 #define gameVisibleObject_hpp
 
 #include "STG.hpp"
-#include "AL_GameObjectManager.hpp"
+#include "AL_GameObjectBase.hpp"
 #include "Util.hpp"
-#include "AL_Texture.hpp"
+
+
+class AL_Texture;
+
+
 
 enum RenderMode
 {
@@ -25,7 +29,7 @@ enum RenderMode
 
 
 
-class AL_VisibleObject : AL_GameObjectBase
+class AL_VisibleObject:AL_GameObjectBase
 {
     
 public:

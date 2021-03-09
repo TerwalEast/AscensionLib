@@ -11,7 +11,7 @@
 
 #include "STG.hpp"
 #include <vector>
-#include "AL_GameObjectBase.hpp"
+
 
 using namespace std;
 
@@ -24,8 +24,7 @@ public:
     ~AL_GameObjectManager();
     
     
-    
-    vector<AL_GameObjectBase> _objects;
+
     
 private:
     

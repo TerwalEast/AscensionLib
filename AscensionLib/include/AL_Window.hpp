@@ -21,9 +21,13 @@ public:
     
     ~AL_Window();
     
-    void InitWindow();
+    void InitWindow(std::string windowTitle, uint32_t height, uint32_t width);
     
-    void SetBackgroundColour(uint8_t R, uint8_t G, uint8_t B, uint8_t A);
+    void SetBackgroundColour(uint16_t R, uint16_t G, uint16_t B, uint16_t A);
+    
+    
+    
+    
     
     friend class AL_GameObjectBase;
     

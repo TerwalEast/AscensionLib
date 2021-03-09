@@ -7,6 +7,7 @@
 //
 
 #include "../include/AL_VisibleObject.hpp"
-
+#include "../include/AL_Texture.hpp"
+#include "../include/AL_GameObjectBase.hpp"
 
 

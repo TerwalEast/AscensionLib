@@ -15,11 +15,9 @@ class AL_GameObjectBase
 {
 public:
     
-    AL_GameObjectBase();
+
     
-    virtual ~AL_GameObjectBase();
-    
-    virtual void Update();
+    void Update();
     
     
 private:
