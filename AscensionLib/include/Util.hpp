@@ -11,42 +11,65 @@
 
 #include <stdio.h>
 #include "STG.hpp"
+#include <memory>
+
+static void SDL_ResourceDestory(SDL_Window *pWindow)
+{
+    SDL_DestroyWindow(pWindow);
+}
+
+static void SDL_ResourceDestory(SDL_Renderer *pRenderer)
+{
+    SDL_DestroyRenderer(pRenderer);
+}
+
+static void SDL_ResourceDestory(SDL_Texture *pTexture)
+{
+    SDL_DestroyTexture(pTexture);
+}
+
+static void SDL_ResourceDestory(SDL_Surface *pSurface)
+{
+    SDL_FreeSurface(pSurface);
+}
 
 
 
-class AL_Point
+
+
+
+class AL_Vector2D
 {
 public:
     
-    double_t x;
-    double_t y;
     
-    double_t GetX();
-    double_t GetY();
     
-    AL_Point()
+    const double GetX();
+    const double GetY();
+    
+    AL_Vector2D()
     {
         
     };
     
-    AL_Point(double givenX, double givenY)
+    AL_Vector2D(double givenX, double givenY)
     {
         this->x = givenX;
         this->y = givenY;
     };
     
-    ~AL_Point()
+    ~AL_Vector2D()
     {
         
     };
     
-    AL_Point operator +(AL_Point secondPoint)
+    AL_Vector2D operator +(AL_Vector2D secondPoint)
     {
-        AL_Point resultPoint(this->x + secondPoint.x, this->y + secondPoint.y);
+        AL_Vector2D resultPoint(this->x + secondPoint.x, this->y + secondPoint.y);
         return resultPoint;
     };
     
-    void operator =(AL_Point secondPoint)
+    void operator =(AL_Vector2D secondPoint)
     {
         this->x = secondPoint.x;
         this->y = secondPoint.y;
@@ -54,8 +77,10 @@ public:
     
 private:
     
+    double x;
+    double y;
     
-    SDL_Point* convertToSDLPoint();
+    //SDL_Point* convertToSDLPoint();
 
 };
 
@@ -64,9 +89,9 @@ class AL_Transform
 {
 public:
     
-    AL_Point position;
-    double_t rotation;
-    double_t scale;
+    AL_Vector2D position;
+    double rotation;
+    double scale;
     
     AL_Transform();
     
@@ -88,10 +113,10 @@ class AL_Rectangle
 {
 public:
     
-    double_t x;
-    double_t y;
-    double_t width;
-    double_t height;
+    double x;
+    double y;
+    double width;
+    double height;
     
     
     AL_Rectangle()
@@ -99,7 +124,7 @@ public:
         
     };
     
-    AL_Rectangle(double_t x, double_t y, double_t width, double_t height)
+    AL_Rectangle(double x, double y, double width, double height)
     {
         this->x = x;
         this->y = y;

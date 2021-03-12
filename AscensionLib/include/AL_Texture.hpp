@@ -42,8 +42,10 @@ public:
     
     
     //-------------------------
-    ///\brief 直接在屏幕上渲染材质。
+
     //-------------------------
+    
+ 
 
     void DirectRender(AL_Rectangle targetRect, AL_Rectangle clipRect);
     

@@ -37,10 +37,10 @@ public:
     ~AL_Camera();
     
     //设置摄像机移动的目标点
-    void SetCameraDestination(float x, float y, CameraMovementMethod cameraMovementMethod);
+    void SetCameraDestination(double x, double y, CameraMovementMethod cameraMovementMethod);
     
     //
-    
+    void SetCameraPosition(double x,double y);
     
     
     //更新函数
@@ -51,16 +51,16 @@ public:
 private:
     
     //摄像机的现在中心位置
-    static AL_Point _cameraPosition;
+    static AL_Vector2D _cameraPosition;
     
     //现在设置的摄像机移动方式
     static CameraMovementMethod _currentMovementMethod;
     
     //移动目标
-    static AL_Point _movementTarget;
+    static AL_Vector2D _movementTarget;
     
     //旋转角度
-    static double_t rotate;
+    static double rotate;
     
     //
     static bool _hasFinishedMoving;

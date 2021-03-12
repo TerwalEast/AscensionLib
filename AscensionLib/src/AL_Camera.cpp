@@ -11,5 +11,5 @@
 
 
 
-AL_Point AL_Camera::_cameraPosition;
+AL_Vector2D AL_Camera::_cameraPosition;
 
