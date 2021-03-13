@@ -17,22 +17,30 @@ class AL_Window
 {
 public:
     
-    AL_Window();
-    
-    ~AL_Window();
-    
-    void InitWindow(std::string windowTitle, uint32_t height, uint32_t width);
-    
-    void SetBackgroundColour(uint16_t R, uint16_t G, uint16_t B, uint16_t A);
+    static AL_Window& GetWindow()
+    {
+        return _window;
+    }
     
     
     
     
+    static void InitWindow(std::string windowTitle, uint32_t height, uint32_t width);
     
-    friend class AL_GameObjectBase;
+    //void SetBackgroundColour(uint16_t R, uint16_t G, uint16_t B, uint16_t A);
+    
+    
+    
+    static SDL_Window* GetSDLWindow();
+    static SDL_Renderer* GetSDLRenderer();
+    
+
     
 private:
     
+    
+    AL_Window(){};
+    ~AL_Window(){};
     
     
     
@@ -44,7 +52,7 @@ private:
     static std::string _headerText;
     
     
-    
+    static AL_Window _window;
     
     static void free();
     

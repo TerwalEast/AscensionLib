@@ -28,7 +28,6 @@ public:
 
     
     static void InitGame();
-    static AL_Window& GetWindow();
     static AL_GameObjectManager& GetGameObjectManager();
     GameManager();
     ~GameManager();
@@ -47,7 +46,6 @@ private:
     enum GameState { Uninitialized, ShowingSplash, ShowingMenu, Playing, Exiting };
 
     static GameState _gameState;
-    static AL_Window _gameWindow;
     static AL_GameClock _localClock;
     
     

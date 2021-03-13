@@ -7,10 +7,26 @@
 //
 
 #include "../include/AL_ResourceManager.hpp"
+#include "../include/AL_Window.hpp"
+
+std::map<std::string,AL_Texture> AL_ResourceManager::_textureMap;
 
 
-
-
+bool AL_ResourceManager::LoadTexture(std::string filePath, std::string textureID)
+{
+    SDL_Surface *pTempSurface = IMG_Load(filePath.c_str());
+    if(pTempSurface == nullptr)
+    {
+        return false;
+    }
+    
+    SDL_Texture *pTempTexture = SDL_CreateTextureFromSurface(AL_Window::GetSDLRenderer(), pTempSurface);
+        
+    
+    
+    
+    return true;
+}
 
 void AL_ResourceManager::ClearTextureMap()
 {

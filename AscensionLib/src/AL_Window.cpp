@@ -21,47 +21,32 @@ void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t wi
 {
     
     
-    if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
-    {
-        
-        
-        
-    }
-    else
-    {
-        
-        
-    }
     
     
-    SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" );
     
-    
-    _pWindow = SDL_CreateWindow( windowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN );
+    //创建SDL窗口和配套的渲染器。
+    _pWindow = SDL_CreateWindow( windowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     _pRenderer = SDL_CreateRenderer( _pWindow, -1, SDL_RENDERER_ACCELERATED );
+    
+    //抹个白色背景。SDL内部机制，每次调用SDL_RenderClear都会抹一遍当前RenderDrawColor的颜色。
     SDL_SetRenderDrawColor( _pRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
     
-    IMG_Init( IMG_INIT_JPG | IMG_INIT_PNG );
+
     
     
 }
 
 
 
-AL_Window::AL_Window()
+SDL_Window* AL_Window::GetSDLWindow()
 {
-    
-    
+    return _pWindow;
 }
 
-
-AL_Window::~AL_Window()
+SDL_Renderer* AL_Window::GetSDLRenderer()
 {
-    free();
-    
-    
+    return _pRenderer;
 }
-
 
 void AL_Window::free()
 {

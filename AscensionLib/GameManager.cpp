@@ -21,7 +21,7 @@ GameManager::GameState GameManager::_gameState;
 AL_GameClock GameManager::_localClock;
 
 
-AL_Window GameManager::_gameWindow;
+
 
 
 int _rollDice()
@@ -223,8 +223,9 @@ void GameManager :: InitGame()
 {
     std::string title;
     title = "Demo";
-    _gameWindow.InitWindow(title, 800, 600);
+    //AL_Window::InitWindow(title, 800, 600);
     
+    AL_Game::InitGame(title, 800, 600);
     
     //初始化SDL
     /*

@@ -10,6 +10,10 @@
 #define AL_Game_hpp
 
 #include <stdio.h>
+#include "STG.hpp"
+
+class AL_Window;
+
 
 class AL_Game
 {
@@ -21,7 +25,7 @@ public:
         return _game;
     }
     
-    static void InitGame();
+    static void InitGame(std::string windowTitle, uint32_t height, uint32_t width);
     
     static void HandleInput();
     
