@@ -33,6 +33,9 @@ public:
     
 private:
     
+    
+    
+    
     static SDL_Window* _pWindow;
     static SDL_Renderer* _pRenderer;
     static bool _isFullScreen;

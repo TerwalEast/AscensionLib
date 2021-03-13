@@ -15,8 +15,6 @@ class AL_GameObjectBase
 {
 public:
     
-
-    
     void Update();
     
     

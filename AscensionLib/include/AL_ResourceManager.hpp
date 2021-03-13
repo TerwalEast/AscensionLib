@@ -30,18 +30,29 @@ class AL_ResourceManager
     
 public:
     
+    static AL_ResourceManager& AL_GetResourceManager()
+    {
+        return _ResourceManager;
+    }
     
     
+    static void ClearTextureMap();
+    static void ClearFromTextureMap(std::string id);
+    static bool LoadTexture(std::string filePath, std::string textureID);
     
     
     
 private:
     
+    AL_ResourceManager(){};
+    ~AL_ResourceManager(){};
+    AL_ResourceManager(const AL_ResourceManager& resourceManager) = delete;
+    AL_ResourceManager& operator = (const AL_ResourceManager resourceManager) = delete;
     
-    std::map<std::string,AL_Texture> _textureMap;
+    static std::map<std::string,AL_Texture> _textureMap;
     
     
-    
+    static AL_ResourceManager _ResourceManager;
     
     
 };

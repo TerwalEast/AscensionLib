@@ -16,25 +16,30 @@ class AL_Game
     
 public:
     
-    AL_Game();
+    static AL_Game& AL_GetGame()
+    {
+        return _game;
+    }
     
-    ~AL_Game();
+    static void InitGame();
     
-    void InitGame();
+    static void HandleInput();
     
-    void HandleInput();
+    static void UpdateGame();
     
-    void UpdateGame();
-    
-    void RenderGame();
+    static void RenderGame();
     
 private:
     
+    AL_Game(){};
+    ~AL_Game(){};
+    AL_Game(const AL_Game& game) = delete;
+    AL_Game& operator = (const AL_Game game) = delete;
     
     
     
     
-    
+    static AL_Game _game;
     
 };
 

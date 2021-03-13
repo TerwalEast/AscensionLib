@@ -34,7 +34,10 @@ static void SDL_ResourceDestory(SDL_Surface *pSurface)
 }
 
 
-
+class AL_Log
+{
+    
+};
 
 
 
