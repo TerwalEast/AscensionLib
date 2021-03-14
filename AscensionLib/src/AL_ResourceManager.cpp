@@ -14,6 +14,9 @@ std::map<std::string,AL_Texture> AL_ResourceManager::_textureMap;
 
 bool AL_ResourceManager::LoadTexture(std::string filePath, std::string textureID)
 {
+    AL_Texture tempTexture;
+    
+    
     SDL_Surface *pTempSurface = IMG_Load(filePath.c_str());
     if(pTempSurface == nullptr)
     {
