@@ -9,6 +9,8 @@
 #include "../include/AL_ResourceManager.hpp"
 #include "../include/AL_Window.hpp"
 
+using namespace std;
+
 std::map<std::string,AL_Texture> AL_ResourceManager::_textureMap;
 
 
@@ -38,7 +40,21 @@ void AL_ResourceManager::ClearTextureMap()
 
 void AL_ResourceManager::ClearFromTextureMap(std::string id)
 {
-    _textureMap.find(id);
+    if(_textureMap.erase(id) == 0) //代表没找到这个id对应的texture
+    {
+        cout << GetTimeString() << ": " << "删除失败" << endl;
+        
+        
+    }
+    else //找到并删除了这个id对应的texture
+    {
+        
+        
+        
+    }
+    
+    
+    
     
 }
 

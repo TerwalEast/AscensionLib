@@ -13,8 +13,22 @@
 #include "STG.hpp"
 #include <string>
 
+typedef struct
+{
+    uint R;
+    uint G;
+    uint B;
+    uint A;
+}color;
+
+class AL_Texture;
+
 class AL_Window
 {
+    
+    friend AL_Texture;
+    
+    
 public:
     
     static AL_Window& GetWindow()
@@ -27,7 +41,13 @@ public:
     
     static void InitWindow(std::string windowTitle, uint32_t height, uint32_t width);
     
-    //void SetBackgroundColour(uint16_t R, uint16_t G, uint16_t B, uint16_t A);
+    static void SetBackgroundColour(uint R, uint G, uint B, uint A);
+    
+    static void ClearWindow();
+    
+    static void FlushRenderer();
+    
+    static void ShowCurrent();
     
     
     
@@ -35,26 +55,31 @@ public:
     static SDL_Renderer* GetSDLRenderer();
     
 
+protected:
+    
+    static SDL_Window* _pWindow;
+    static SDL_Renderer* _pRenderer;
     
 private:
     
     
     AL_Window(){};
-    ~AL_Window(){};
+    ~AL_Window(){free();};
     
     
     
-    static SDL_Window* _pWindow;
-    static SDL_Renderer* _pRenderer;
+    
     static bool _isFullScreen;
-    static double_t _height;
-    static double_t _width;
+    static int _height;
+    static int _width;
     static std::string _headerText;
     
     
     static AL_Window _window;
     
     static void free();
+    
+    static color _backgroundColor;
     
 };
 

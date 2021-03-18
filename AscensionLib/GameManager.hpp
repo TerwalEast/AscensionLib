@@ -46,8 +46,6 @@ private:
     enum GameState { Uninitialized, ShowingSplash, ShowingMenu, Playing, Exiting };
 
     static GameState _gameState;
-    static AL_GameClock _localClock;
-    
     
     enum gameStatus{ init, playing, onturn};
     

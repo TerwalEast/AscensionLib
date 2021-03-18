@@ -14,8 +14,32 @@
 
 class AL_GameClock
 {
+public:
+    
+    
+    static AL_GameClock& AL_GetClock()
+    {
+        return _gameClock;
+    }
+    
+    //更新当前的时间，更新一个新的ElapsedTime（两帧之间经过时间）
+    static void UpdateTime();
+    
+    
+    //获取ElapsedTime
+    static double_t GetElapsedTime()
+    {
+        return ElapsedTime;
+    };
+    
     
 private:
+    
+    AL_GameClock();
+    ~AL_GameClock();
+    AL_GameClock(const AL_GameClock& gameClock) = delete;
+    AL_GameClock& operator = (const AL_GameClock gameClock) = delete;
+    
     
     //上一次取时间时，系统的记时刻数量
     static uint64_t LastTick;
@@ -36,24 +60,7 @@ private:
     static double_t ElapsedTime;
 
     
-public:
-    
-    
-
-    //更新当前的时间，更新一个新的ElapsedTime（两帧之间经过时间）
-    void UpdateTime();
-    
-    //构造
-    AL_GameClock();
-    
-    //析构
-    ~AL_GameClock();
-    
-    //获取ElapsedTime
-    double_t GetElapsedTime()
-    {
-        return ElapsedTime;
-    };
+    static AL_GameClock _gameClock;
     
 
     

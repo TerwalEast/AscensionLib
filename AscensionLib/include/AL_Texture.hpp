@@ -45,22 +45,27 @@ public:
 
     //-------------------------
     
- 
+    
+    //整块材质对整个屏幕，直接渲染
+    void DirectRender();
 
+    
+    //渲染材质中clipRect的部分，渲染到targetRect
     void DirectRender(AL_Rectangle targetRect, AL_Rectangle clipRect);
     
     
     
     
-    //在摄像机上渲染
+    
+    //在摄像机上渲染,x/y为其中心坐标
     void RenderToCamera(float x, float y,AL_Camera targetCamera);
     
     
     
     
-    void AssignAlpha();
+    void SetAlphaMode(uint alpha);
     
-    //void AssignWindow();
+    
     
     
 private:

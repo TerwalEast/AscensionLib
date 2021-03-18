@@ -16,19 +16,20 @@ class Splash:AL_VisibleObject
 {
 public:
     
-    Splash();
+    Splash(){InitSplash();};
     
-    ~Splash();
+    ~Splash(){};
     
     void SplashLoop();
     
+    void InitSplash();
     
     
     
 private:
     
     AL_Texture* _pSplashTexture;
-    
+    void _destorySplashTexture();
     
 };
 

@@ -18,7 +18,6 @@
 using namespace std;
 
 GameManager::GameState GameManager::_gameState;
-AL_GameClock GameManager::_localClock;
 
 
 
@@ -33,9 +32,11 @@ int _rollDice()
 
 void GameManager :: _splashLoop()
 {
-    
+    Splash splash;
+    splash.SplashLoop();
     
     /*
+    
     bool quit = false;
 
     //Event handler
@@ -154,8 +155,8 @@ void GameManager :: _splashLoop()
     
     _gameState = ShowingMenu;
     
-     
      */
+     
 }
 
 void GameManager :: _gameLoop()
@@ -254,17 +255,10 @@ void GameManager :: InitGame()
     _pieceTexture = _loadTexture("/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/Aeroplane/P.png");
     
     
-    
+    */
     //进入主循环
     _gameState = ShowingSplash;
     _mainLoop();
-    
-    
-    
-    
-    
-    */
-    
 }
 
 

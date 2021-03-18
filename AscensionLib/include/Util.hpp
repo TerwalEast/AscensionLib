@@ -41,6 +41,16 @@ class AL_Log
 
 
 
+std::string GetTimeString()
+{
+    time_t nowtime;
+    nowtime = time(NULL); //获取日历时间
+    char tmp[64];
+    strftime(tmp,sizeof(tmp),"%Y-%m-%d %H:%M:%S",localtime(&nowtime));
+    return tmp;
+}
+
+
 class AL_Vector2D
 {
 public:

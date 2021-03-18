@@ -18,5 +18,6 @@
 #include "include/AL_Window.hpp"
 #include "include/AL_GameObjectManager.hpp"
 #include "include/AL_Game.hpp"
+#include "include/AL_ResourceManager.hpp"
 
 #endif /* AeroPlaneGame_hpp */

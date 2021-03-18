@@ -7,19 +7,52 @@
 //
 
 #include "../include/AL_Window.hpp"
+#include "../include/AL_Texture.hpp"
 
 SDL_Window* AL_Window::_pWindow;
 SDL_Renderer* AL_Window::_pRenderer;
 bool AL_Window::_isFullScreen;
-double_t AL_Window::_height;
-double_t AL_Window::_width;
+int AL_Window::_height;
+int AL_Window::_width;
 std::string AL_Window::_headerText;
 
+
+void AL_Window::SetBackgroundColour(uint R, uint G, uint B, uint A)
+{
+    _backgroundColor.R = R;
+    _backgroundColor.G = G;
+    _backgroundColor.B = B;
+    _backgroundColor.A = A;
+    SDL_SetRenderDrawColor(_pRenderer, R, G, B, A);
+    
+}
+
+
+void AL_Window::ClearWindow()
+{
+    SDL_Rect fullRect = { 0, 0, _width, _height};
+    SDL_RenderClear(_pRenderer);
+    SDL_RenderFillRect(_pRenderer, &fullRect);
+    
+}
+
+
+void AL_Window::FlushRenderer()
+{
+    SDL_RenderFlush(_pRenderer);
+}
+
+void AL_Window::ShowCurrent()
+{
+    SDL_RenderPresent(_pRenderer);
+}
 
 
 void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t width)
 {
     
+    _height = height;
+    _width = width;
     
     
     
@@ -28,12 +61,20 @@ void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t wi
     _pWindow = SDL_CreateWindow( windowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     _pRenderer = SDL_CreateRenderer( _pWindow, -1, SDL_RENDERER_ACCELERATED );
     
+    _backgroundColor.A = 0xFF;
+    _backgroundColor.B = 0xFF;
+    _backgroundColor.G = 0xFF;
+    _backgroundColor.R = 0xFF;
+    
     //抹个白色背景。SDL内部机制，每次调用SDL_RenderClear都会抹一遍当前RenderDrawColor的颜色。
     SDL_SetRenderDrawColor( _pRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
     
+    
+}
 
-    
-    
+void AL_Texture::SetAlphaMode(uint alpha)
+{
+    SDL_SetTextureAlphaMod(_pTargetTexture, alpha);
 }
 
 
@@ -50,7 +91,7 @@ SDL_Renderer* AL_Window::GetSDLRenderer()
 
 void AL_Window::free()
 {
-    SDL_free(_pWindow);
-    SDL_free(_pRenderer);
+    SDL_ResourceDestory(_pWindow);
+    SDL_ResourceDestory(_pRenderer);
     
 }

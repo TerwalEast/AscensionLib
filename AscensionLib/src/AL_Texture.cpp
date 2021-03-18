@@ -11,6 +11,16 @@
 #include "../include/AL_Camera.hpp"
 
 
+void AL_Texture::DirectRender()
+{
+    SDL_RenderCopy(AL_Window::_pRenderer, _pTargetTexture, NULL, NULL);
+    
+    
+    
+    
+    
+}
+
 
 void AL_Texture::Load(std::string path)
 {
