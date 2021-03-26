@@ -15,14 +15,18 @@ bool AL_Window::_isFullScreen;
 int AL_Window::_height;
 int AL_Window::_width;
 std::string AL_Window::_headerText;
+uint AL_Window::R;
+uint AL_Window::G;
+uint AL_Window::B;
+uint AL_Window::A;
 
 
-void AL_Window::SetBackgroundColour(uint R, uint G, uint B, uint A)
+void AL_Window::SetBackgroundColour(uint r, uint g, uint b, uint a)
 {
-    _backgroundColor.R = R;
-    _backgroundColor.G = G;
-    _backgroundColor.B = B;
-    _backgroundColor.A = A;
+    R = r;
+    G = g;
+    B = b;
+    A = a;
     SDL_SetRenderDrawColor(_pRenderer, R, G, B, A);
     
 }
@@ -61,10 +65,10 @@ void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t wi
     _pWindow = SDL_CreateWindow( windowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     _pRenderer = SDL_CreateRenderer( _pWindow, -1, SDL_RENDERER_ACCELERATED );
     
-    _backgroundColor.A = 0xFF;
-    _backgroundColor.B = 0xFF;
-    _backgroundColor.G = 0xFF;
-    _backgroundColor.R = 0xFF;
+    A = 0xFF;
+    B = 0xFF;
+    G = 0xFF;
+    R = 0xFF;
     
     //抹个白色背景。SDL内部机制，每次调用SDL_RenderClear都会抹一遍当前RenderDrawColor的颜色。
     SDL_SetRenderDrawColor( _pRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
@@ -74,20 +78,11 @@ void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t wi
 
 void AL_Texture::SetAlphaMode(uint alpha)
 {
-    SDL_SetTextureAlphaMod(_pTargetTexture, alpha);
+    SDL_SetTextureAlphaMod(_pTargetTexture.get(), alpha);
 }
 
 
 
-SDL_Window* AL_Window::GetSDLWindow()
-{
-    return _pWindow;
-}
-
-SDL_Renderer* AL_Window::GetSDLRenderer()
-{
-    return _pRenderer;
-}
 
 void AL_Window::free()
 {

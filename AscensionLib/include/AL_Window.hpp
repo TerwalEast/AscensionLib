@@ -13,13 +13,6 @@
 #include "STG.hpp"
 #include <string>
 
-typedef struct
-{
-    uint R;
-    uint G;
-    uint B;
-    uint A;
-}color;
 
 class AL_Texture;
 
@@ -36,6 +29,7 @@ public:
         return _window;
     }
     
+
     
     
     
@@ -51,8 +45,14 @@ public:
     
     
     
-    static SDL_Window* GetSDLWindow();
-    static SDL_Renderer* GetSDLRenderer();
+    static SDL_Window* GetSDLWindow()
+    {
+        return _pWindow;
+    }
+    static SDL_Renderer* GetSDLRenderer()
+    {
+        return _pRenderer;
+    }
     
 
 protected:
@@ -79,7 +79,10 @@ private:
     
     static void free();
     
-    static color _backgroundColor;
+    static uint R;
+    static uint G;
+    static uint B;
+    static uint A;
     
 };
 

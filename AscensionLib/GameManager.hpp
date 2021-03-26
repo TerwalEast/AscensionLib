@@ -26,6 +26,7 @@ class GameManager
 public:
     
 
+    friend Splash;
     
     static void InitGame();
     static AL_GameObjectManager& GetGameObjectManager();
@@ -49,7 +50,7 @@ private:
     
     enum gameStatus{ init, playing, onturn};
     
-    static gameStatus GameStatus;
+
     
 
     

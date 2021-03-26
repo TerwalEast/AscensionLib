@@ -13,22 +13,35 @@ using namespace std;
 
 std::map<std::string,AL_Texture> AL_ResourceManager::_textureMap;
 
+AL_Texture& AL_ResourceManager::GetTextureByID(std::string textureID)
+{
+    return _textureMap.at(textureID);
+}
+
+AL_ResourceManager::~AL_ResourceManager()
+{
+    _textureMap.clear();
+    
+}
+
 
 bool AL_ResourceManager::LoadTexture(std::string filePath, std::string textureID)
 {
+    
+    if(_textureMap.find(textureID) != _textureMap.end())
+    {
+        std::cout << "材质加载失败：相同ID已经存在" << std::endl;
+        return false;
+    }
+    
     AL_Texture tempTexture;
     
-    
-    SDL_Surface *pTempSurface = IMG_Load(filePath.c_str());
-    if(pTempSurface == nullptr)
+    if( !tempTexture.Load(filePath) )    //材质加载成功时
     {
         return false;
     }
     
-    SDL_Texture *pTempTexture = SDL_CreateTextureFromSurface(AL_Window::GetSDLRenderer(), pTempSurface);
-        
-    
-    
+    _textureMap.insert(std::pair<std::string, AL_Texture>(textureID, tempTexture));
     
     return true;
 }
@@ -42,7 +55,7 @@ void AL_ResourceManager::ClearFromTextureMap(std::string id)
 {
     if(_textureMap.erase(id) == 0) //代表没找到这个id对应的texture
     {
-        cout << GetTimeString() << ": " << "删除失败" << endl;
+        cout << ": " << "删除失败" << endl;
         
         
     }

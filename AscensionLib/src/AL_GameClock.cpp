@@ -38,8 +38,6 @@
 //};
 
 
-
-
 uint64_t AL_GameClock::CurrentTick;
 uint64_t AL_GameClock::LastTick;
 double_t AL_GameClock::CurrentTime;
@@ -47,7 +45,7 @@ double_t AL_GameClock::LastTime;
 double_t AL_GameClock::ElapsedTime;
 uint64_t AL_GameClock::SystemFrequency;
 
-AL_GameClock :: AL_GameClock()
+void AL_GameClock::InitClock()
 {
     SystemFrequency = SDL_GetPerformanceFrequency();
     
@@ -59,6 +57,12 @@ AL_GameClock :: AL_GameClock()
     CurrentTime = LastTime;
     
     UpdateTime();
+    
+}
+
+
+AL_GameClock::AL_GameClock()
+{
 }
 
 
@@ -76,7 +80,6 @@ void AL_GameClock :: UpdateTime()
 
 AL_GameClock :: ~AL_GameClock()
 {
-    
 }
 
 

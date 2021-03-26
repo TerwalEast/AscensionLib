@@ -226,7 +226,8 @@ void GameManager :: InitGame()
     title = "Demo";
     //AL_Window::InitWindow(title, 800, 600);
     
-    AL_Game::InitGame(title, 800, 600);
+    AL_Game::InitGame(title, 600, 800);
+    AL_GameClock::InitClock();
     
     //初始化SDL
     /*
@@ -258,6 +259,7 @@ void GameManager :: InitGame()
     */
     //进入主循环
     _gameState = ShowingSplash;
+    
     _mainLoop();
 }
 

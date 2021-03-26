@@ -39,13 +39,13 @@ public:
     static void ClearTextureMap();
     static void ClearFromTextureMap(std::string id);
     static bool LoadTexture(std::string filePath, std::string textureID);
-    
+    static AL_Texture& GetTextureByID(std::string textureID);
     
     
 private:
     
     AL_ResourceManager(){};
-    ~AL_ResourceManager(){};
+    ~AL_ResourceManager();
     AL_ResourceManager(const AL_ResourceManager& resourceManager) = delete;
     AL_ResourceManager& operator = (const AL_ResourceManager resourceManager) = delete;
     

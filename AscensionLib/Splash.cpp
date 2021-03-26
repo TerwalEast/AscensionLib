@@ -18,9 +18,10 @@ void Splash::InitSplash()
 {
     string id = SPLASH_TEXTURE_ID;
     string filePath = SPLASH_FILE_PATH;
+    
     AL_ResourceManager::LoadTexture(filePath, id);
-    
-    
+
+    _pSplashTexture = &AL_ResourceManager::GetTextureByID(id);
     
 }
 
@@ -33,12 +34,50 @@ void Splash::SplashLoop()
     SDL_Event e;
 
     //While application is running
-    int alpha;
+    int alpha = 0;
     double timeStack = 0;
 
     AL_GameClock::UpdateTime();
     AL_GameClock::GetElapsedTime();
-
+    AL_Window::SetBackgroundColour(255, 255, 255, 255);
+//    while( !quit )
+//    {
+//        while( SDL_PollEvent( &e ) != 0 )
+//        {
+//            //User requests quit
+//            if( e.type == SDL_QUIT )
+//            {
+//                quit = true;
+//            }
+//        }
+//        
+//        
+//        if(quit)exit(0);
+//        SDL_ClearError();
+//        alpha = 255;
+//        //cout <<"0:" << SDL_GetError() << endl;
+//        SDL_RenderClear(AL_Window::GetSDLRenderer());
+//        //cout <<"1:" << SDL_GetError() << endl;
+//        SDL_RenderCopy(AL_Window::GetSDLRenderer(), _pSplashTexture->GetSDLTexture(), NULL, NULL);
+//        //cout <<"2:" << SDL_GetError() << endl;
+//        SDL_RenderPresent(AL_Window::GetSDLRenderer());
+//        //cout <<"3:" << SDL_GetError() << endl;
+//        
+//        //AL_Window::ClearWindow();
+//        //_pSplashTexture->SetAlphaMode(alpha);
+//        //把材质渲染到屏幕上
+//        //_pSplashTexture->DirectRender();
+//        //更新屏幕
+//        //AL_Window::ShowCurrent();
+//        
+//        cout << "Up!" << endl;
+//        
+//        
+//        
+//        
+//        
+//    }
+    
     //淡入
     while( !quit )
     {
@@ -54,8 +93,8 @@ void Splash::SplashLoop()
 
         
 
-        
-    //涂个白色（0x00,0x00,0x00）不透明（0xFF）底。之前设置了Texture混合模式为Blend，这个底将会和我们的材质Blend达到渐变效果
+
+        //涂个白色（0xFF,0xFF,0xFF）透明（0xFF）底。之前设置了Texture混合模式为Blend，这个底将会和我们的材质Blend达到渐变效果
         AL_Window::ClearWindow();
 
         //调用钟表获取时间，根据时间改变当前的状态
@@ -63,21 +102,24 @@ void Splash::SplashLoop()
         timeStack += AL_GameClock::GetElapsedTime();
         alpha = floor(timeStack / 2.0 * 255);
 
+        cout << "current alpha: " << alpha << endl;
+        cout << "current timeStack: " << timeStack << endl;
+
         _pSplashTexture->SetAlphaMode(alpha);
 
         //把材质渲染到屏幕上
-        SDL_RenderCopy( _mainRenderer, _splashTexture, NULL, NULL );
+        _pSplashTexture->DirectRender();
+
 
         //更新屏幕
-        SDL_RenderPresent( _mainRenderer );
+        AL_Window::ShowCurrent();
 
         if(timeStack >= 2) break;
 
     }
-    
     //保持
     timeStack = 0;
-    _localClock.UpdateTime();
+    AL_GameClock::UpdateTime();
     while( !quit )
     {
         while( SDL_PollEvent( &e ) != 0 )
@@ -88,15 +130,13 @@ void Splash::SplashLoop()
                 quit = true;
             }
         }
-        
-        
-        
-        _localClock.UpdateTime();
-        timeStack += _localClock.GetElapsedTime();
+
+        AL_GameClock::UpdateTime();
+
+        timeStack += AL_GameClock::GetElapsedTime();
         if(timeStack >= 1) break;
-        
+
     }
-    
     //淡出
     while( !quit )
     {
@@ -111,46 +151,31 @@ void Splash::SplashLoop()
         }
 
         //Clear screen
-        SDL_RenderClear( _mainRenderer );
-
-        SDL_Rect fillRect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-        SDL_SetRenderDrawColor( _mainRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-        SDL_RenderFillRect( _mainRenderer, &fillRect );
+        AL_Window::ClearWindow();
 
         //调用钟表获取时间，根据时间改变当前的状态
-        _localClock.UpdateTime();
-        timeStack += _localClock.GetElapsedTime();
+        AL_GameClock::UpdateTime();
+        timeStack += AL_GameClock::GetElapsedTime();
         alpha = 255 - floor(timeStack / 2.0 * 255);
 
+        cout << "current alpha: " << alpha << endl;
 
-        SDL_SetTextureAlphaMod(_splashTexture, alpha);
-
-        std::cout << alpha << std::endl;
+        _pSplashTexture->SetAlphaMode(alpha);
 
         //把材质渲染到屏幕上
-        SDL_RenderCopy( _mainRenderer, _splashTexture, NULL, NULL );
+        _pSplashTexture->DirectRender();
 
         //更新屏幕
-        SDL_RenderPresent( _mainRenderer );
+        AL_Window::ShowCurrent();
 
         if(timeStack >= 2) break;
 
     }
     
     
-    _gameState = ShowingMenu;
+    GameManager::_gameState = GameManager::ShowingMenu;
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    GameManager::_gameState = GameManager::Playing;
+
 }
 
 

@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "STG.hpp"
 #include "Util.hpp"
-
+#include <memory>
 
 
 /*
@@ -23,9 +23,17 @@ Please note that texture should be used to store 2^ size graphic resources, othe
 class AL_Camera;
 
 
+
+
+
 class AL_Texture
 {
 public:
+    
+    static void deleteSDL_Texture(SDL_Texture* _pSDL_Texture)
+    {
+        SDL_DestroyTexture(_pSDL_Texture);
+    }
     
     //构造
     AL_Texture();
@@ -34,12 +42,7 @@ public:
     ~AL_Texture();
     
     //从文件中读取材质
-    void Load(std::string path);
-    
-    //摧毁这个材质类，释放它占用的空间
-    void Destroy();
-    
-    
+    bool Load(std::string path);
     
     //-------------------------
 
@@ -54,9 +57,6 @@ public:
     void DirectRender(AL_Rectangle targetRect, AL_Rectangle clipRect);
     
     
-    
-    
-    
     //在摄像机上渲染,x/y为其中心坐标
     void RenderToCamera(float x, float y,AL_Camera targetCamera);
     
@@ -65,14 +65,19 @@ public:
     
     void SetAlphaMode(uint alpha);
     
-    
+    SDL_Texture* GetSDLTexture()
+    {
+        return _pTargetTexture.get();
+    }
     
     
 private:
     
     //被封装的实际SDL材质
-    SDL_Texture *_pTargetTexture;
-    SDL_Renderer *_pTargetRenderer;
+    //SDL_Texture *_pTargetTexture;
+    std::shared_ptr<SDL_Texture> _pTargetTexture ;
+    
+    
     
 };
 

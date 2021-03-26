@@ -53,12 +53,10 @@ int main( int argc, char* args[] )
 
     
     //游戏模块初始化
-    localClock = new AL_GameClock();
-    
     gGameManager = new GameManager();
     gGameManager->InitGame();
     
-    SDL_Point poin;
+    //SDL_Point poin;
     
     
     

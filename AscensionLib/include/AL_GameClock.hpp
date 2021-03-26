@@ -22,6 +22,8 @@ public:
         return _gameClock;
     }
     
+    static void InitClock();
+    
     //更新当前的时间，更新一个新的ElapsedTime（两帧之间经过时间）
     static void UpdateTime();
     
