@@ -18,7 +18,12 @@ public:
     void Update();
     
     
+    
+    
 private:
+    
+    bool _isActive;
+    bool _isRendered;
     
     
 };

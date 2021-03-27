@@ -8,22 +8,6 @@
 
 #include "Player.hpp"
 #include "AeroPlaneGame.hpp"
-//class Player
-//{
-//    //Player下辖的棋子序列。
-//    std::vector<AeroPlane> _planeList;
-//    uint32_t _startingPoint;
-//
-//
-//    Player();
-//    ~Player();
-//
-//
-//
-//
-//
-//};
-
 
 Player::Player()
 {

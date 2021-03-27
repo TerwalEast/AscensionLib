@@ -38,7 +38,7 @@ bool AL_Texture::Load(std::string path)
     }
 
     SDL_FreeSurface( loadedSurface );
-    SDL_SetTextureBlendMode(ptempSDL_Texture, SDL_BLENDMODE_NONE);
+    SDL_SetTextureBlendMode(ptempSDL_Texture, SDL_BLENDMODE_BLEND);
     
     std::shared_ptr<SDL_Texture> ptempSmartTexture(ptempSDL_Texture,deleteSDL_Texture);
     _pTargetTexture = ptempSmartTexture;

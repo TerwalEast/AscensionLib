@@ -58,9 +58,6 @@ void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t wi
     _height = height;
     _width = width;
     
-    
-    
-    
     //创建SDL窗口和配套的渲染器。
     _pWindow = SDL_CreateWindow( windowTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     _pRenderer = SDL_CreateRenderer( _pWindow, -1, SDL_RENDERER_ACCELERATED );

@@ -40,44 +40,7 @@ void Splash::SplashLoop()
     AL_GameClock::UpdateTime();
     AL_GameClock::GetElapsedTime();
     AL_Window::SetBackgroundColour(255, 255, 255, 255);
-//    while( !quit )
-//    {
-//        while( SDL_PollEvent( &e ) != 0 )
-//        {
-//            //User requests quit
-//            if( e.type == SDL_QUIT )
-//            {
-//                quit = true;
-//            }
-//        }
-//        
-//        
-//        if(quit)exit(0);
-//        SDL_ClearError();
-//        alpha = 255;
-//        //cout <<"0:" << SDL_GetError() << endl;
-//        SDL_RenderClear(AL_Window::GetSDLRenderer());
-//        //cout <<"1:" << SDL_GetError() << endl;
-//        SDL_RenderCopy(AL_Window::GetSDLRenderer(), _pSplashTexture->GetSDLTexture(), NULL, NULL);
-//        //cout <<"2:" << SDL_GetError() << endl;
-//        SDL_RenderPresent(AL_Window::GetSDLRenderer());
-//        //cout <<"3:" << SDL_GetError() << endl;
-//        
-//        //AL_Window::ClearWindow();
-//        //_pSplashTexture->SetAlphaMode(alpha);
-//        //把材质渲染到屏幕上
-//        //_pSplashTexture->DirectRender();
-//        //更新屏幕
-//        //AL_Window::ShowCurrent();
-//        
-//        cout << "Up!" << endl;
-//        
-//        
-//        
-//        
-//        
-//    }
-    
+
     //淡入
     while( !quit )
     {
