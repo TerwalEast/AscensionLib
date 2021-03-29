@@ -11,6 +11,8 @@
 #include "Player.hpp"
 #include "ChessBoard.hpp"
 #include "Splash.hpp"
+#include "MainMenu.hpp"
+
 
 #define SCREEN_HEIGHT 612
 #define SCREEN_WIDTH 612
@@ -88,6 +90,9 @@ void GameManager :: _gameLoop()
 
 void GameManager :: _menuLoop()
 {
+    
+    
+    
     
     //_gameState = Playing;
 }

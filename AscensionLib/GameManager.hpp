@@ -18,7 +18,7 @@ class Player;
 class ChessBoard;
 
 class Splash;
-
+class MainMenu;
 
 
 class GameManager
