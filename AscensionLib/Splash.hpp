@@ -28,7 +28,7 @@ public:
     
 private:
     
-    AL_Texture* _pSplashTexture;
+    AL_Texture& _SplashTexture;
     void _destorySplashTexture();
     
 };

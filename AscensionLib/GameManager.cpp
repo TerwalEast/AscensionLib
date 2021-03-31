@@ -90,11 +90,13 @@ void GameManager :: _gameLoop()
 
 void GameManager :: _menuLoop()
 {
+    MainMenu mainMenu;
+    mainMenu.InitMainMenu();
+    mainMenu.MainMenuLoop();
     
     
     
     
-    //_gameState = Playing;
 }
 
 

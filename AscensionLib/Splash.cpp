@@ -21,7 +21,7 @@ void Splash::InitSplash()
     
     AL_ResourceManager::LoadTexture(filePath, id);
 
-    _pSplashTexture = &AL_ResourceManager::GetTextureByID(id);
+    _SplashTexture = *AL_ResourceManager::GetTextureByID(id);
     
 }
 
@@ -68,10 +68,10 @@ void Splash::SplashLoop()
         cout << "current alpha: " << alpha << endl;
         cout << "current timeStack: " << timeStack << endl;
 
-        _pSplashTexture->SetAlphaMode(alpha);
+        _SplashTexture.SetAlphaMode(alpha);
 
         //把材质渲染到屏幕上
-        _pSplashTexture->DirectRender();
+        _SplashTexture.DirectRender();
 
 
         //更新屏幕
@@ -123,10 +123,10 @@ void Splash::SplashLoop()
 
         cout << "current alpha: " << alpha << endl;
 
-        _pSplashTexture->SetAlphaMode(alpha);
+        _SplashTexture.SetAlphaMode(alpha);
 
         //把材质渲染到屏幕上
-        _pSplashTexture->DirectRender();
+        _SplashTexture.DirectRender();
 
         //更新屏幕
         AL_Window::ShowCurrent();

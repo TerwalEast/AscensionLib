@@ -32,14 +32,15 @@ private:
     
     AL_Texture* _pTextureMenuBackground;
     
-    AL_Texture* _pTexture;
-    
-    
+    AL_Texture* _pTextureMenuSelectionHighlight;
     AL_Texture* _pTextureMenuSelectionOutline;
     AL_Texture* _pTextureMenuSelectionText;
     
+    AL_Texture* _pTextureMenuTitleOutline;
+    AL_Texture* _pTextureMenuTitle;
     
-    
+    AL_Texture* _pTextureMenuHongOutline;
+    AL_Texture* _pTextureMenuHong;
     
     
     

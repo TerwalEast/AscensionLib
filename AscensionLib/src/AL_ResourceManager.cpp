@@ -13,9 +13,18 @@ using namespace std;
 
 std::map<std::string,AL_Texture> AL_ResourceManager::_textureMap;
 
-AL_Texture& AL_ResourceManager::GetTextureByID(std::string textureID)
+AL_Texture* AL_ResourceManager::GetTextureByID(std::string textureID)
 {
-    return _textureMap.at(textureID);
+    std::map<std::string, AL_Texture>::iterator it;
+    
+    it = _textureMap.find(textureID);
+    
+    if( it  == _textureMap.end())
+    {
+        return nullptr;
+    }
+    
+    return &(it->second);
 }
 
 AL_ResourceManager::~AL_ResourceManager()
@@ -25,25 +34,28 @@ AL_ResourceManager::~AL_ResourceManager()
 }
 
 
-bool AL_ResourceManager::LoadTexture(std::string filePath, std::string textureID)
+AL_Texture* AL_ResourceManager::LoadTexture(std::string filePath, std::string textureID)
 {
     
-    if(_textureMap.find(textureID) != _textureMap.end())
-    {
-        std::cout << "材质加载失败：相同ID已经存在" << std::endl;
-        return false;
-    }
+    std::map<std::string, AL_Texture>::iterator it;
     
     AL_Texture tempTexture;
     
-    if( !tempTexture.Load(filePath) )    //材质加载成功时
+    if( ! tempTexture.Load(filePath) )  //材质加载不成功时
     {
-        return false;
+        return nullptr;
     }
     
-    _textureMap.insert(std::pair<std::string, AL_Texture>(textureID, tempTexture));
+    std::pair<std::map<std::string, AL_Texture>::iterator, bool> pair;
     
-    return true;
+    pair = _textureMap.insert(std::pair<std::string, AL_Texture>(textureID, tempTexture));
+    
+    if(!pair.second) //插入失败，重复ID
+    {
+        return nullptr;
+    }
+    
+    return &(pair.first->second);
 }
 
 void AL_ResourceManager::ClearTextureMap()

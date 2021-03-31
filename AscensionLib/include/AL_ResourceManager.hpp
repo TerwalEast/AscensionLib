@@ -38,8 +38,19 @@ public:
     
     static void ClearTextureMap();
     static void ClearFromTextureMap(std::string id);
-    static bool LoadTexture(std::string filePath, std::string textureID);
-    static AL_Texture& GetTextureByID(std::string textureID);
+    
+    
+    
+    
+    /**
+     * \name 读取并保存材质到内存
+     *
+     * \return 成功时返回材质对象的引用，失败时返回null
+     *
+     */
+    
+    static AL_Texture* LoadTexture(std::string filePath, std::string textureID);
+    static AL_Texture* GetTextureByID(std::string textureID);
     
     
 private:

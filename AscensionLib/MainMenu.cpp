@@ -10,6 +10,19 @@
 
 
 
+bool MainMenu::InitMainMenu()
+{
+    
+    
+    
+    return true;
+}
+
+
+
+
+
+
 
 
 
