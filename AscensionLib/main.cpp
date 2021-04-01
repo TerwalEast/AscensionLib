@@ -12,8 +12,6 @@
 #include <string>
 #include "GameManager.hpp"
 
-const int SCREEN_WIDTH = 612;
-const int SCREEN_HEIGHT = 612;
 
 //游戏本体
 GameManager *gGameManager = NULL;

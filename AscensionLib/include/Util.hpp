@@ -13,26 +13,6 @@
 #include "STG.hpp"
 #include <memory>
 
-static void SDL_ResourceDestory(SDL_Window *pWindow)
-{
-    SDL_DestroyWindow(pWindow);
-}
-
-static void SDL_ResourceDestory(SDL_Renderer *pRenderer)
-{
-    SDL_DestroyRenderer(pRenderer);
-}
-
-static void SDL_ResourceDestory(SDL_Texture *pTexture)
-{
-    SDL_DestroyTexture(pTexture);
-}
-
-static void SDL_ResourceDestory(SDL_Surface *pSurface)
-{
-    SDL_FreeSurface(pSurface);
-}
-
 
 class AL_Log
 {

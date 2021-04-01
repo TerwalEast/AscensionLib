@@ -9,8 +9,7 @@
 #include "Splash.hpp"
 #include "GameManager.hpp"
 
-#define SPLASH_TEXTURE_ID "splash_texture"
-#define SPLASH_FILE_PATH "/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/EoSD/th06logo.jpg"
+
 
 Splash::Splash()
 {

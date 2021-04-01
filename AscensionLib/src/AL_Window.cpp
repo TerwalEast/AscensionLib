@@ -20,6 +20,11 @@ uint AL_Window::G;
 uint AL_Window::B;
 uint AL_Window::A;
 
+void AL_Window::SetLogicalResolution(int width, int height)
+{
+    SDL_RenderSetLogicalSize(_pRenderer, width, height);
+}
+
 
 void AL_Window::SetBackgroundColour(uint r, uint g, uint b, uint a)
 {
@@ -52,7 +57,7 @@ void AL_Window::ShowCurrent()
 }
 
 
-void AL_Window::InitWindow(std::string windowTitle, uint32_t height, uint32_t width)
+void AL_Window::InitWindow(std::string windowTitle, uint32_t width, uint32_t height)
 {
     
     _height = height;
@@ -83,7 +88,6 @@ void AL_Texture::SetAlphaMode(uint alpha)
 
 void AL_Window::free()
 {
-    SDL_ResourceDestory(_pWindow);
-    SDL_ResourceDestory(_pRenderer);
-    
+    SDL_DestroyRenderer(_pRenderer);
+    SDL_DestroyWindow(_pWindow);
 }

@@ -9,7 +9,7 @@
 #include "../include/AL_Game.hpp"
 #include "../include/AL_Window.hpp"
 
-void AL_Game::InitGame(std::string windowTitle, uint32_t height, uint32_t width)
+void AL_Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
 {
     //初始化SDL
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
@@ -35,7 +35,7 @@ void AL_Game::InitGame(std::string windowTitle, uint32_t height, uint32_t width)
     IMG_Init( IMG_INIT_JPG | IMG_INIT_PNG );
     
     //初始化AL_Window
-    AL_Window::InitWindow(windowTitle, height, width);
+    AL_Window::InitWindow(windowTitle, width, height);
     
     
     

@@ -43,6 +43,7 @@ public:
     
     static void ShowCurrent();
     
+    static void SetLogicalResolution(int width,int height);
     
     
     static SDL_Window* GetSDLWindow()

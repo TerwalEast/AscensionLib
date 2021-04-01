@@ -12,11 +12,33 @@
 #include <stdio.h>
 #include "AeroPlaneGame.hpp"
 
-class MenuSelection
+/**
+ *我想应该主菜单写成硬编码没什么问题吧.......
+ *仍然在用直接路径获取资源，这样不好，等我改出合适的资源管理器。
+ *
+ *
+ *
+ */
+
+
+
+//菜单选项。就是例如“Start Game”、“Option”这样的一个选项。
+class MenuSelection : AL_VisibleObject
 {
+public:
+    
+    MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle ClipArea);
+    ~MenuSelection();
     
     
     
+    
+private:
+    
+    AL_Rectangle _renderTargetArea;
+    AL_Rectangle _clipArea;
+    AL_Texture* _targetNormalTexture;
+    AL_Texture* _targetHightLightTexture;
     
 };
 
@@ -35,18 +57,10 @@ public:
     
 private:
     
-    
+    //坐着的.jpg
     AL_Texture* _pTextureMenuBackground;
     
-    AL_Texture* _pTextureMenuSelectionHighlight;
-    AL_Texture* _pTextureMenuSelectionOutline;
-    AL_Texture* _pTextureMenuSelectionText;
     
-    AL_Texture* _pTextureMenuTitleOutline;
-    AL_Texture* _pTextureMenuTitle;
-    
-    AL_Texture* _pTextureMenuHongOutline;
-    AL_Texture* _pTextureMenuHong;
     
     
     

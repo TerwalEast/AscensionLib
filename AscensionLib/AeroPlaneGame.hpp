@@ -20,4 +20,12 @@
 #include "include/AL_Game.hpp"
 #include "include/AL_ResourceManager.hpp"
 
+#define SPLASH_TEXTURE_ID "splash_texture"
+#define SPLASH_FILE_PATH "/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/EoSD/th06logo.jpg"
+#define MAIN_MENU_BACKGROUND_ID "mainmenu_background_texture"
+#define MAIN_MENU_BACKGROUND_PATH "/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/Aeroplane/title00.jpg"
+
+
+
+
 #endif /* AeroPlaneGame_hpp */
