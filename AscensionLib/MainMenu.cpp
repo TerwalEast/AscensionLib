@@ -10,20 +10,24 @@
 
 
 
-bool MainMenu::InitMainMenu()
+
+MainMenu::MainMenu()
 {
+    //读取材质。这可真不少啊！
     
     
     
-    return true;
+    
+    
+    
 }
 
 
 
-
-
-
-
+MainMenu::~MainMenu()
+{
+    
+}
 
 
 

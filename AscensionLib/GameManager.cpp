@@ -34,12 +34,8 @@ int _rollDice()
 
 void GameManager :: _splashLoop()
 {
-    
-    
     Splash splash;
     splash.SplashLoop();
-    
-    
 }
 
 void GameManager :: _gameLoop()
@@ -91,12 +87,7 @@ void GameManager :: _gameLoop()
 void GameManager :: _menuLoop()
 {
     MainMenu mainMenu;
-    mainMenu.InitMainMenu();
     mainMenu.MainMenuLoop();
-    
-    
-    
-    
 }
 
 

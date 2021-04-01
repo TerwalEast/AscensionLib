@@ -12,18 +12,20 @@
 #define SPLASH_TEXTURE_ID "splash_texture"
 #define SPLASH_FILE_PATH "/Users/shan/Desktop/AscensionLib/AscensionLib/Resources/EoSD/th06logo.jpg"
 
-
-
-void Splash::InitSplash()
+Splash::Splash()
 {
+    
     string id = SPLASH_TEXTURE_ID;
     string filePath = SPLASH_FILE_PATH;
     
     AL_ResourceManager::LoadTexture(filePath, id);
 
-    _SplashTexture = *AL_ResourceManager::GetTextureByID(id);
-    
+    _SplashTexture = AL_ResourceManager::GetTextureByID(id);
 }
+
+
+
+
 
 
 void Splash::SplashLoop()
@@ -68,10 +70,10 @@ void Splash::SplashLoop()
         cout << "current alpha: " << alpha << endl;
         cout << "current timeStack: " << timeStack << endl;
 
-        _SplashTexture.SetAlphaMode(alpha);
+        _SplashTexture->SetAlphaMode(alpha);
 
         //把材质渲染到屏幕上
-        _SplashTexture.DirectRender();
+        _SplashTexture->DirectRender();
 
 
         //更新屏幕
@@ -123,10 +125,10 @@ void Splash::SplashLoop()
 
         cout << "current alpha: " << alpha << endl;
 
-        _SplashTexture.SetAlphaMode(alpha);
+        _SplashTexture->SetAlphaMode(alpha);
 
         //把材质渲染到屏幕上
-        _SplashTexture.DirectRender();
+        _SplashTexture->DirectRender();
 
         //更新屏幕
         AL_Window::ShowCurrent();

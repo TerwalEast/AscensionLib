@@ -12,6 +12,14 @@
 #include <stdio.h>
 #include "AeroPlaneGame.hpp"
 
+class MenuSelection
+{
+    
+    
+    
+    
+};
+
 class MainMenu
 {
     
@@ -20,8 +28,6 @@ public:
     MainMenu();
     ~MainMenu();
     
-    
-    bool InitMainMenu();
     
     void MainMenuLoop();
     
@@ -41,7 +47,6 @@ private:
     
     AL_Texture* _pTextureMenuHongOutline;
     AL_Texture* _pTextureMenuHong;
-    
     
     
     
