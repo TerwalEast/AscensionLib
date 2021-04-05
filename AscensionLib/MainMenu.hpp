@@ -30,6 +30,15 @@ public:
     MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle ClipArea);
     ~MenuSelection();
     
+    void Draw()
+    {
+        
+    };
+    
+    void Update()
+    {
+        
+    };
     
     
     
@@ -53,13 +62,14 @@ public:
     
     void MainMenuLoop();
     
+    void RenderSelections();
     
     
 private:
     
     //坐着的.jpg
     AL_Texture* _pTextureMenuBackground;
-    
+    std::vector<MenuSelection> _selectionVector;
     
     
     
