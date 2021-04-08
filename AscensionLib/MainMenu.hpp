@@ -41,6 +41,11 @@ public:
     };
     
     
+    void destory()
+    {
+        
+    };
+    
     
 private:
     
