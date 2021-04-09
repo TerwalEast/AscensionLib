@@ -8,6 +8,14 @@
 
 #include "MainMenu.hpp"
 
+void MenuSelection::Draw()
+{
+    
+    
+    
+}
+
+
 MenuSelection::MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle ClipArea)
 {
     _targetNormalTexture = AL_ResourceManager::GetTextureByID(targetNormalTextureID);

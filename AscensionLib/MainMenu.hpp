@@ -20,7 +20,7 @@
  *
  */
 
-
+class MainMenu;
 
 //菜单选项。就是例如“Start Game”、“Option”这样的一个选项。
 class MenuSelection : AL_VisibleObject
@@ -30,10 +30,7 @@ public:
     MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle ClipArea);
     ~MenuSelection();
     
-    void Draw()
-    {
-        
-    };
+    void Draw();
     
     void Update()
     {
@@ -51,9 +48,10 @@ private:
     
     AL_Rectangle _renderTargetArea;
     AL_Rectangle _clipArea;
-    AL_Texture* _targetNormalTexture;
-    AL_Texture* _targetHightLightTexture;
+    AL_Texture* _ptargetNormalTexture;
+    AL_Texture* _ptargetHightLightTexture;
     
+    MainMenu* _pMyMenu;
 };
 
 class MainMenu
