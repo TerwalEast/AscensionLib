@@ -27,8 +27,11 @@ class MenuSelection : AL_VisibleObject
 {
 public:
     
-    MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle ClipArea);
-    ~MenuSelection();
+    MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle clipArea, MainMenu* pMenu);
+    ~MenuSelection()
+    {
+        
+    };
     
     void Draw();
     
@@ -74,6 +77,8 @@ private:
     AL_Texture* _pTextureMenuBackground;
     std::vector<MenuSelection> _selectionVector;
     
+    AL_Texture* _pTextNormalTexture;
+    AL_Texture* _pTextHighlightTexture;
     
     
     

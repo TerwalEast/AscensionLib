@@ -41,8 +41,15 @@ public:
     //析构
     ~AL_Texture();
     
-    //从文件中读取材质
+    /**
+     *从文件中读取材质。你可以用这个函数让一个材质对象重新读取另一个材质文件，但我不知道这会有什么后果。
+     */
     bool Load(std::string path);
+    
+    /**
+     *用历史模式读取材质。应付那些古老的、在主材质中没有Alpha通道而另外附带一张材质作为Alpha通道的材质。
+     */
+    bool LoadLegacy(std::string texturePath, std::string alphaPath);
     
     //-------------------------
 

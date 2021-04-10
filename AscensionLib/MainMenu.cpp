@@ -16,12 +16,14 @@ void MenuSelection::Draw()
 }
 
 
-MenuSelection::MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle ClipArea)
+
+MenuSelection::MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle clipArea,MainMenu* pMenu)
 {
-    _targetNormalTexture = AL_ResourceManager::GetTextureByID(targetNormalTextureID);
-    _targetHightLightTexture = AL_ResourceManager::GetTextureByID(targetHighlightTextureID);
+    _ptargetNormalTexture = AL_ResourceManager::GetTextureByID(targetNormalTextureID);
+    _ptargetHightLightTexture = AL_ResourceManager::GetTextureByID(targetHighlightTextureID);
     _renderTargetArea = renderTargetArea;
-    _clipArea = ClipArea;
+    _clipArea = clipArea;
+    _pMyMenu = pMenu;
 }
 
 
@@ -58,6 +60,9 @@ MainMenu::MainMenu()
 {
     //读取材质。这可真不少啊！
     _pTextureMenuBackground = AL_ResourceManager::LoadTexture(MAIN_MENU_BACKGROUND_PATH, MAIN_MENU_BACKGROUND_ID);
+    
+    _pTextNormalTexture = AL_ResourceManager::LoadTexture(<#std::string filePath#>, <#std::string textureID#>);
+
     
     
     

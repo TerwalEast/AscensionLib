@@ -47,7 +47,14 @@ bool AL_Texture::Load(std::string path)
     
 }
 
-
+bool AL_Texture::LoadLegacy(std::string texturePath, std::string alphaPath)
+{
+    SDL_Surface* loadedMainTexture = IMG_Load( texturePath.c_str() );
+    
+    
+    
+    
+}
 
 AL_Texture::AL_Texture()
 {
