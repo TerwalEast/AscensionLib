@@ -60,8 +60,10 @@ AL_Texture* AL_ResourceManager::LoadTexture(std::string filePath, std::string te
 
 AL_Texture* AL_ResourceManager::LoadtextureLegacy(std::string textureFilePath, std::string alphaFilePath, std::string textureID)
 {
+
     
 }
+
 
 void AL_ResourceManager::ClearTextureMap()
 {

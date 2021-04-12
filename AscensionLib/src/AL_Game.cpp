@@ -34,6 +34,8 @@ void AL_Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
     //初始化SDL_IMG库
     IMG_Init( IMG_INIT_JPG | IMG_INIT_PNG );
     
+    TTF_Init();
+    
     //初始化AL_Window
     AL_Window::InitWindow(windowTitle, width, height);
     

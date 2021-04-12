@@ -36,7 +36,7 @@ public:
 private:
     
     AL_Game(){};
-    ~AL_Game(){IMG_Quit();SDL_Quit();};
+    ~AL_Game(){IMG_Quit();SDL_Quit();TTF_Quit();};
     AL_Game(const AL_Game& game) = delete;
     AL_Game& operator = (const AL_Game game) = delete;
     

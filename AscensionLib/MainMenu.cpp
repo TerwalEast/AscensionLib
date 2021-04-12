@@ -35,9 +35,6 @@ void MainMenu::MainMenuLoop()
     
     while(!quit)
     {
-        
-        
-        
         AL_Window::ClearWindow();
         _pTextureMenuBackground->DirectRender();
         AL_Window::ShowCurrent();
@@ -51,7 +48,6 @@ void MainMenu::MainMenuLoop()
             }
         }
     }
-    
     
     
 }
