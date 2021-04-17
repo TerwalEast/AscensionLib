@@ -57,7 +57,7 @@ MainMenu::MainMenu()
     //读取材质。这可真不少啊！
     _pTextureMenuBackground = AL_ResourceManager::LoadTexture(MAIN_MENU_BACKGROUND_PATH, MAIN_MENU_BACKGROUND_ID);
     
-    _pTextNormalTexture = AL_ResourceManager::LoadTexture(<#std::string filePath#>, <#std::string textureID#>);
+    //_pTextNormalTexture = AL_ResourceManager::LoadTexture(std::string filePath, std::string textureID);
 
     
     

@@ -62,6 +62,7 @@ AL_Texture* AL_ResourceManager::LoadtextureLegacy(std::string textureFilePath, s
 {
 
     
+    return nullptr;
 }
 
 

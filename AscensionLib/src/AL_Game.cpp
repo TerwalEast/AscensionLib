@@ -9,6 +9,30 @@
 #include "../include/AL_Game.hpp"
 #include "../include/AL_Window.hpp"
 
+
+
+
+constexpr int gl_major_version = 4;
+constexpr int gl_minor_version = 1;
+constexpr bool gl_debug = true;
+//constexpr const char * window_title = "OpenGL 4.5 + SDL2 Basic window";
+//constexpr int window_width = 1024;
+//constexpr int window_height = 768;
+constexpr bool fullscreen = false;
+constexpr bool vsync = false;
+
+
+void Init_SDL_GL()
+{
+    
+    
+    
+    
+    
+}
+
+
+
 void AL_Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
 {
     //初始化SDL
@@ -36,6 +60,9 @@ void AL_Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
     
     TTF_Init();
     
+    //通过SDL初始化OpenGL。
+    Init_SDL_GL();
+    
     //初始化AL_Window
     AL_Window::InitWindow(windowTitle, width, height);
     
@@ -43,5 +70,12 @@ void AL_Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
     
     
     
+    
+    
+    
+    
+    
 }
+
+
 

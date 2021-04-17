@@ -63,7 +63,7 @@ bool AL_Texture::LoadLegacy(std::string texturePath, std::string alphaPath)
     }
     
     
-    
+    return true;
     
 }
 
