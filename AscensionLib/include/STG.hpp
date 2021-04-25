@@ -30,7 +30,8 @@
 #include <SDL2_ttf/SDL_ttf.h>
 #include <ctime>
 
-
-
+#ifdef __APPLE__
+#include <OpenGL/OpenGL.h>
+#endif
 
 #endif /* STG_hpp */

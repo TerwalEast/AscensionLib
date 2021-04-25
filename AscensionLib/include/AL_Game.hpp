@@ -45,9 +45,7 @@ private:
     
     static AL_Game _game;
     
-    
 
-    
 };
 
 
