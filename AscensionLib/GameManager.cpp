@@ -8,8 +8,6 @@
 
 #include "GameManager.hpp"
 #include "AeroPlaneGame.hpp"
-#include "Player.hpp"
-#include "ChessBoard.hpp"
 #include "Splash.hpp"
 #include "MainMenu.hpp"
 

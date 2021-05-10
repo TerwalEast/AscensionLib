@@ -50,7 +50,7 @@ private:
     
     enum gameStatus{ init, playing, onturn};
     
-
+    
     
 
     
