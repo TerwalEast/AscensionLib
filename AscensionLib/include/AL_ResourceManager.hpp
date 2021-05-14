@@ -10,19 +10,16 @@
 #define AL_ResourceManager_hpp
 
 #include <stdio.h>
+#include <string>
 #include "STG.hpp"
 #include "AL_Texture.hpp"
 
 
-
-
-
-
-
-
-
-
-
+std::string getBasePath()
+{
+    std::string *temp = new string(SDL_GetBasePath());
+    return *temp;
+}
 
 
 class AL_ResourceManager
@@ -34,6 +31,8 @@ public:
     {
         return _ResourceManager;
     }
+    
+    
     
     
     static void ClearTextureMap();
