@@ -14,10 +14,7 @@
 
 int main(int argc, const char * argv[])
 {
-    
     GameManager *game = new GameManager();
     game->InitGame();
-    
-    
     return 0;
 }

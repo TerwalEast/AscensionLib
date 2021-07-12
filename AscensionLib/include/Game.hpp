@@ -15,12 +15,13 @@
 class AL_Window;
 
 
-class AL_Game
+namespace AscensionLib {
+class Game
 {
     
 public:
     
-    static AL_Game& AL_GetGame()
+    static Game& GetGame()
     {
         return _game;
     }
@@ -35,18 +36,22 @@ public:
     
 private:
     
-    AL_Game(){};
-    ~AL_Game(){IMG_Quit();SDL_Quit();TTF_Quit();};
-    AL_Game(const AL_Game& game) = delete;
-    AL_Game& operator = (const AL_Game game) = delete;
+    Game(){};
+    ~Game(){IMG_Quit();SDL_Quit();TTF_Quit();};
+    Game(const Game& game) = delete;
+    Game& operator = (const Game game) = delete;
     
     
     
     
-    static AL_Game _game;
+    static Game _game;
     
 
 };
+
+
+
+}
 
 
 

@@ -105,10 +105,11 @@ void GameManager::InitGame()
     title = "Demo";
     //AL_Window::InitWindow(title, 800, 600);
     
-    AL_Game::InitGame(title, 600, 400);
+    Game::InitGame(title, 600, 400);
     AL_GameClock::InitClock();
     
     //AL_Window::SetLogicalResolution(1600, 900);
+    
     
     //进入Splash循环
     _gameState = ShowingSplash;

@@ -13,13 +13,13 @@
 #include "STG.hpp"
 #include <memory>
 
+namespace AscensionLib {
+
 
 class AL_Log
 {
     
 };
-
-
 
 //std::string GetTimeString()
 //{
@@ -31,38 +31,36 @@ class AL_Log
 //}
 
 
-class AL_Vector2D
+class Vector2D
 {
 public:
-    
-    
     
     const double GetX();
     const double GetY();
     
-    AL_Vector2D()
+    Vector2D()
     {
         
     };
     
-    AL_Vector2D(double givenX, double givenY)
+    Vector2D(double givenX, double givenY)
     {
         this->x = givenX;
         this->y = givenY;
     };
     
-    ~AL_Vector2D()
+    ~Vector2D()
     {
         
     };
     
-    AL_Vector2D operator +(AL_Vector2D secondPoint)
+    Vector2D operator +(Vector2D secondPoint)
     {
-        AL_Vector2D resultPoint(this->x + secondPoint.x, this->y + secondPoint.y);
+        Vector2D resultPoint(this->x + secondPoint.x, this->y + secondPoint.y);
         return resultPoint;
     };
     
-    void operator =(AL_Vector2D secondPoint)
+    void operator =(Vector2D secondPoint)
     {
         this->x = secondPoint.x;
         this->y = secondPoint.y;
@@ -72,37 +70,23 @@ private:
     
     double x;
     double y;
-    
     //SDL_Point* convertToSDLPoint();
-
 };
 
 
-class AL_Transform
+class Transform
 {
 public:
-    
-    AL_Vector2D position;
+    Vector2D position;
     double rotation;
     double scale;
-    
-    AL_Transform();
-    
-    ~AL_Transform();
-    
-    
-    
-    
+    Transform();
+    ~Transform();
 private:
-    
-    
-    
-    
-    
 };
 
 
-class AL_Rectangle
+class Rectangle
 {
 public:
     
@@ -112,12 +96,12 @@ public:
     double height;
     
     
-    AL_Rectangle()
+    Rectangle()
     {
         
     };
     
-    AL_Rectangle(double x, double y, double width, double height)
+    Rectangle(double x, double y, double width, double height)
     {
         this->x = x;
         this->y = y;
@@ -125,24 +109,22 @@ public:
         this->height = height;
     };
     
-    ~AL_Rectangle()
+    ~Rectangle()
     {
         
     };
     
-    
-    
-    
-    
 private:
-    
-    
-    
     
 };
 
 
 
+
+
+
+
+}
 
 
 

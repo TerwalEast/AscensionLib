@@ -51,13 +51,13 @@ public:
 private:
     
     //摄像机的现在中心位置
-    static AL_Vector2D _cameraPosition;
+    static Vector2D _cameraPosition;
     
     //现在设置的摄像机移动方式
     static CameraMovementMethod _currentMovementMethod;
     
     //移动目标
-    static AL_Vector2D _movementTarget;
+    static Vector2D _movementTarget;
     
     //旋转角度
     static double rotate;

@@ -16,6 +16,9 @@
 
 class AL_Texture;
 
+
+
+namespace AscensionLib {
 class AL_Window
 {
     
@@ -86,6 +89,10 @@ private:
     static uint A;
     
 };
+}
+
+
+
 
 
 

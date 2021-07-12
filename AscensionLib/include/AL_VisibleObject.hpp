@@ -16,8 +16,7 @@
 
 class AL_Texture;
 
-
-
+namespace AscensionLib {
 enum RenderMode
 {
     DisableRendering = 1,
@@ -44,7 +43,7 @@ private:
     
     AL_Texture* _pTargetTexture;
     
-    AL_Rectangle _clipRect;
+    Rectangle _clipRect;
     
     RenderMode _renderMode;
     
@@ -52,6 +51,10 @@ private:
 
     
 };
+
+}
+
+
 
 
 

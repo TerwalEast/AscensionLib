@@ -6,7 +6,7 @@
 //  Copyright © 2021 TeamAscension. All rights reserved.
 //
 
-#include "../include/AL_Game.hpp"
+#include "../include/Game.hpp"
 #include "../include/AL_Window.hpp"
 
 

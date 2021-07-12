@@ -15,9 +15,9 @@
 #include "AL_Texture.hpp"
 
 
-std::string getBasePath()
+inline std::string getBasePath()
 {
-    std::string *temp = new string(SDL_GetBasePath());
+    std::string *temp = new std::string(SDL_GetBasePath());
     return *temp;
 }
 
@@ -59,23 +59,22 @@ public:
     
     /**
      *使用老模式读取材质，应付那些古老的、在主材质中没有Alpha通道而另外附带一张材质作为Alpha通道的材质。
+     *SDL框架做不到这点，必须准备上OpenGL了。
      */
     static AL_Texture* LoadtextureLegacy(std::string textureFilePath, std::string alphaFilePath, std::string textureID);
     
     
 private:
-    
-    AL_ResourceManager(){};
+    AL_ResourceManager()
+    {
+        _resourcePath = getBasePath();
+    };
     ~AL_ResourceManager();
     AL_ResourceManager(const AL_ResourceManager& resourceManager) = delete;
     AL_ResourceManager& operator = (const AL_ResourceManager resourceManager) = delete;
-    
     static std::map<std::string,AL_Texture> _textureMap;
-    
-    
     static AL_ResourceManager _ResourceManager;
-    
-    
+    static std::string _resourcePath;
 };
 
 

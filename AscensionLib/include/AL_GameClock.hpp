@@ -12,10 +12,10 @@
 #include "STG.hpp"
 
 
+namespace AscensionLib {
 class AL_GameClock
 {
 public:
-    
     
     static AL_GameClock& AL_GetClock()
     {
@@ -60,15 +60,14 @@ private:
     
     //两次取时之间的时间，用double存储。
     static double_t ElapsedTime;
-
+    
     
     static AL_GameClock _gameClock;
     
-
-    
-    
-    
 };
+}
+
+
 
 
 #endif /* gameClock_hpp */

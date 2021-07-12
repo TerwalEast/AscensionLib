@@ -23,9 +23,7 @@ Please note that texture should be used to store 2^ size graphic resources, othe
 class AL_Camera;
 
 
-
-
-
+namespace AscensionLib {
 class AL_Texture
 {
 public:
@@ -61,7 +59,7 @@ public:
 
     
     //渲染材质中clipRect的部分，渲染到targetRect
-    void DirectRender(AL_Rectangle targetRect, AL_Rectangle clipRect);
+    void DirectRender(Rectangle targetRect, Rectangle clipRect);
     
     
     //在摄像机上渲染,x/y为其中心坐标
@@ -86,7 +84,10 @@ private:
     
     
     
-};
+};}
+
+
+
 
 
 

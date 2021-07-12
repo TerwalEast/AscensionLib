@@ -17,7 +17,7 @@ void MenuSelection::Draw()
 
 
 
-MenuSelection::MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle clipArea,MainMenu* pMenu)
+MenuSelection::MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, Rectangle renderTargetArea, Rectangle clipArea,MainMenu* pMenu)
 {
     _ptargetNormalTexture = AL_ResourceManager::GetTextureByID(targetNormalTextureID);
     _ptargetHightLightTexture = AL_ResourceManager::GetTextureByID(targetHighlightTextureID);

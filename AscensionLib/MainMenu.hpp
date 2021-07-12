@@ -15,7 +15,7 @@
 /**
  *我想应该主菜单写成硬编码没什么问题吧.......
  *仍然在用直接路径获取资源，这样不好，等我改出合适的资源管理器。
- *
+ *--7.11:至少现在有获取bundle路径的办法了。但合适的带handle的资源管理器仍需要开发。
  *
  *
  */
@@ -27,7 +27,7 @@ class MenuSelection : AL_VisibleObject
 {
 public:
     
-    MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AL_Rectangle renderTargetArea, AL_Rectangle clipArea, MainMenu* pMenu);
+    MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AscensionLib::Rectangle renderTargetArea, Rectangle clipArea, MainMenu* pMenu);
     ~MenuSelection()
     {
         
@@ -49,8 +49,8 @@ public:
     
 private:
     
-    AL_Rectangle _renderTargetArea;
-    AL_Rectangle _clipArea;
+    AscensionLib::Rectangle _renderTargetArea;
+    AscensionLib::Rectangle _clipArea;
     AL_Texture* _ptargetNormalTexture;
     AL_Texture* _ptargetHightLightTexture;
     
