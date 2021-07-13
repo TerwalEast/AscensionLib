@@ -34,6 +34,7 @@ bool AL_Texture::Load(std::string path)
     if( ptempSDL_Texture == NULL )
     {
         printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+        SDL_FreeSurface(loadedSurface);
         return false;
     }
 
@@ -47,25 +48,26 @@ bool AL_Texture::Load(std::string path)
     
 }
 
-bool AL_Texture::LoadLegacy(std::string texturePath, std::string alphaPath)
-{
-    SDL_Surface* loadedMainTexture = IMG_Load( texturePath.c_str() );
-    SDL_Surface* loadedAlpha = IMG_Load(alphaPath.c_str());
-    if( loadedMainTexture == NULL )
-    {
-        printf( "无法读取材质 %s！ SDL_image Error: %s\n", texturePath.c_str(), IMG_GetError() );
-        return false;
-    }
-    if( loadedAlpha == NULL )
-    {
-        printf( "无法读取材质 %s！ SDL_image Error: %s\n", alphaPath.c_str(), IMG_GetError() );
-        return false;
-    }
-    
-    
-    return true;
-    
-}
+///Todo
+//bool AL_Texture::LoadLegacy(std::string texturePath, std::string alphaPath)
+//{
+//    SDL_Surface* loadedMainTexture = IMG_Load( texturePath.c_str() );
+//    SDL_Surface* loadedAlpha = IMG_Load(alphaPath.c_str());
+//    if( loadedMainTexture == NULL )
+//    {
+//        printf( "无法读取材质 %s！ SDL_image Error: %s\n", texturePath.c_str(), IMG_GetError() );
+//        return false;
+//    }
+//    if( loadedAlpha == NULL )
+//    {
+//        printf( "无法读取材质 %s！ SDL_image Error: %s\n", alphaPath.c_str(), IMG_GetError() );
+//        return false;
+//    }
+//
+//
+//    return true;
+//
+//}
 
 AL_Texture::AL_Texture()
 {

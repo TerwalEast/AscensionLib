@@ -16,10 +16,14 @@
 namespace AscensionLib {
 
 
+
+
 class AL_Log
 {
     
 };
+
+
 
 //std::string GetTimeString()
 //{

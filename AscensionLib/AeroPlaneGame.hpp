@@ -29,6 +29,9 @@
 #define MAIN_MENU_TEXT_NORMAL_TEXTURE_PATH "Aeroplane/title00.jpg"
 #define MAIN_MENU_TEXT_HIGHLIGHT_TEXTURE_PATH "Aeroplane/title00.jpg"
 
+#define PLAYER_SPRITE_PATH "EoSD/player00.png"
+
+
 
 
 #endif /* AeroPlaneGame_hpp */

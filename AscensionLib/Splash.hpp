@@ -17,14 +17,9 @@ class Splash:AL_VisibleObject
 public:
     
     Splash();
-    
     ~Splash(){};
-    
     void SplashLoop();
-    
     void InitSplash();
-    
-    
     
 private:
     
