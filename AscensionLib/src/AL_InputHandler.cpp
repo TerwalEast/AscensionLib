@@ -14,7 +14,16 @@ using namespace AscensionLib;
 void AL_InputHandler::AL_InputHandler()
 {
     
-}
+};
 
+void AL_InputHandler::~AL_InputHandler()
+{
+    m_mousePosition = new AL_Vector2D();
+};
+
+void AL_InputHandler::Update()
+{
+    SDL_GetMouseState(&m_mousePosition.x, &m_mousePosition.y);
+}
 
 

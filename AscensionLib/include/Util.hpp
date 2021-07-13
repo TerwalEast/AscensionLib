@@ -47,7 +47,7 @@ public:
         
     };
     
-    Vector2D(double givenX, double givenY)
+    Vector2D(float givenX, float givenY)
     {
         this->x = givenX;
         this->y = givenY;
@@ -72,8 +72,8 @@ public:
     
 private:
     
-    double x;
-    double y;
+    float x;
+    float y;
     //SDL_Point* convertToSDLPoint();
 };
 
