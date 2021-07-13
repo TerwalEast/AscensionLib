@@ -11,7 +11,7 @@
 
 #include "STG.hpp"
 #include "Util.hpp"
-
+#include <vector>
 
 namespace AscensionLib {
 enum mouse_buttons
@@ -25,6 +25,10 @@ class AL_InputHandler
 {
 public:
 
+    std::vector<bool> m_mouseButtonStates;
+    AL_Vector2D* m_mousePosition;
+
+    
     static AL_InputHandler& GetInputHandler()
     {
         return _inputHandler;
@@ -37,8 +41,8 @@ public:
     void reset();
 
     // update and clean the input handler
-    void update();
-    void clean();
+    void Update();
+    void Clean();
 
     // keyboard events
     bool isKeyDown(SDL_Scancode key) const;
@@ -86,9 +90,7 @@ private:
     bool m_bJoysticksInitialised;
     static const int m_joystickDeadZone = 10000;
 
-    std::vector<bool> m_mouseButtonStates;
-    AL_Vector2D* m_mousePosition;
-
+    
     static AL_InputHandler _inputHandler;
 };
 }

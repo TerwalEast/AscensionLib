@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "AeroPlaneGame.hpp"
 
-class Splash:AL_VisibleObject
+class Splash:AscensionLib::AL_VisibleObject
 {
 public:
     
@@ -23,7 +23,7 @@ public:
     
 private:
     
-    AL_Texture* _SplashTexture;
+    AscensionLib::AL_Texture* _SplashTexture;
     void _destorySplashTexture();
     
 };

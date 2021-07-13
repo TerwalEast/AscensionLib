@@ -26,10 +26,11 @@
 #define MAIN_MENU_BACKGROUND_ID "mainmenu_background_texture"
 #define MAIN_MENU_BACKGROUND_PATH "Aeroplane/title00.jpg"
 
-#define MAIN_MENU_TEXT_NORMAL_TEXTURE_PATH "Aeroplane/title00.jpg"
-#define MAIN_MENU_TEXT_HIGHLIGHT_TEXTURE_PATH "Aeroplane/title00.jpg"
+#define MAIN_MENU_TEXT_NORMAL_TEXTURE_PATH "Aeroplane/title01.png"
+#define MAIN_MENU_TEXT_HIGHLIGHT_TEXTURE_PATH "Aeroplane/title01s.png"
+#define MAIN_MENU_TEXT_MASK_TEXTURE_PATH "Aeroplane/title01_a.png"
 
-#define PLAYER_SPRITE_PATH "EoSD/player00.png"
+
 
 
 

@@ -9,6 +9,7 @@
 #include "../include/AL_Window.hpp"
 #include "../include/AL_Texture.hpp"
 
+namespace AscensionLib {
 SDL_Window* AL_Window::_pWindow;
 SDL_Renderer* AL_Window::_pRenderer;
 bool AL_Window::_isFullScreen;
@@ -91,3 +92,6 @@ void AL_Window::free()
     SDL_DestroyRenderer(_pRenderer);
     SDL_DestroyWindow(_pWindow);
 }
+
+}
+

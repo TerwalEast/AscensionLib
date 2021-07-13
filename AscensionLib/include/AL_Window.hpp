@@ -14,11 +14,12 @@
 #include <string>
 
 
-class AL_Texture;
+
 
 
 
 namespace AscensionLib {
+class AL_Texture;
 class AL_Window
 {
     
@@ -31,10 +32,7 @@ public:
     {
         return _window;
     }
-    
-
-    
-    
+        
     
     static void InitWindow(std::string windowTitle, uint32_t height, uint32_t width);
     

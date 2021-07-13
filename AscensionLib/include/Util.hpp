@@ -118,7 +118,19 @@ public:
         
     };
     
+    SDL_Rect getSDLRect()
+    {
+        SDL_Rect tar;
+        tar.x = x;
+        tar.y = y;
+        tar.h = height;
+        tar.w = width;
+        return tar;
+    }
+    
 private:
+    
+    
     
 };
 

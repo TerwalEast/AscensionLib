@@ -10,17 +10,34 @@
 
 void MenuSelection::Draw()
 {
+    if(_isSelected)
+    {
+        _ptargetHightLightTexture->DirectRender(_renderTargetArea, _clipArea);
+    }
+    else
+    {
+        _ptargetNormalTexture->DirectRender(_renderTargetArea, _clipArea);
+    }
 }
 
 
 
-MenuSelection::MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, Rectangle renderTargetArea, Rectangle clipArea,MainMenu* pMenu)
+MenuSelection::MenuSelection(AL_Texture* normalTexture, AL_Texture* highlightTexture, AscensionLib::Rectangle renderTargetArea, AscensionLib::Rectangle clipArea, MainMenu* pMenu)
 {
-    _ptargetNormalTexture = AL_ResourceManager::GetTextureByID(targetNormalTextureID);
-    _ptargetHightLightTexture = AL_ResourceManager::GetTextureByID(targetHighlightTextureID);
+    _pMyMenu = pMenu;
     _renderTargetArea = renderTargetArea;
     _clipArea = clipArea;
-    _pMyMenu = pMenu;
+    _ptargetNormalTexture = normalTexture;
+    _ptargetHightLightTexture = highlightTexture;
+    _isSelected = false;
+    
+}
+
+void MenuSelection::Update()
+{
+    
+    
+    
 }
 
 
@@ -32,9 +49,9 @@ void MainMenu::MainMenuLoop()
     
     while(!quit)
     {
-        AL_Window::ClearWindow();
+        AscensionLib::AL_Window::ClearWindow();
         _pTextureMenuBackground->DirectRender();
-        AL_Window::ShowCurrent();
+        AscensionLib::AL_Window::ShowCurrent();
         //std::cout << "WTF" << std::endl;
         while( SDL_PollEvent( &e ) != 0 )
         {
@@ -52,7 +69,7 @@ void MainMenu::MainMenuLoop()
 MainMenu::MainMenu()
 {
     //读取材质。这可真不少啊！
-    _pTextureMenuBackground = AL_ResourceManager::LoadTexture(MAIN_MENU_BACKGROUND_PATH, MAIN_MENU_BACKGROUND_ID);
+    _pTextureMenuBackground = AscensionLib::AL_ResourceManager::LoadTexture(MAIN_MENU_BACKGROUND_PATH, MAIN_MENU_BACKGROUND_ID);
     //_pTextNormalTexture = AL_ResourceManager::LoadTexture(std::string filePath, std::string textureID);
     
 }

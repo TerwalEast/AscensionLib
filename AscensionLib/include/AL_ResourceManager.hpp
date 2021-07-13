@@ -21,7 +21,7 @@ inline std::string getBasePath()
     return *temp;
 }
 
-
+namespace AscensionLib {
 class AL_ResourceManager
 {
     
@@ -47,7 +47,7 @@ public:
      * \return 成功时返回材质对象的引用，失败时返回null
      */
     
-    static AL_Texture* LoadTexture(std::string filePath, std::string textureID);
+    static AscensionLib::AL_Texture* LoadTexture(std::string filePath, std::string textureID);
     
     
     /**
@@ -55,13 +55,13 @@ public:
      *
      */
     
-    static AL_Texture* GetTextureByID(std::string textureID);
+    static AscensionLib::AL_Texture* GetTextureByID(std::string textureID);
     
     /**
      *使用老模式读取材质，应付那些古老的、在主材质中没有Alpha通道而另外附带一张材质作为Alpha通道的材质。
      *SDL框架做不到这点，必须准备上OpenGL了。
      */
-    static AL_Texture* LoadtextureLegacy(std::string textureFilePath, std::string alphaFilePath, std::string textureID);
+    static AscensionLib::AL_Texture* LoadTextureWithMask(std::string textureFilePath, std::string alphaFilePath, std::string textureID);
     
     
 private:
@@ -73,9 +73,13 @@ private:
     AL_ResourceManager(const AL_ResourceManager& resourceManager) = delete;
     AL_ResourceManager& operator = (const AL_ResourceManager resourceManager) = delete;
     static std::map<std::string,AL_Texture> _textureMap;
-    static AL_ResourceManager _ResourceManager;
+    static AscensionLib::AL_ResourceManager _ResourceManager;
     static std::string _resourcePath;
 };
+
+}
+
+
 
 
 

@@ -15,7 +15,7 @@
 class ChessBoard : AscensionLib::AL_VisibleObject
 {
     
-}
+};
 
 
 #endif /* ChessBoard_hpp */

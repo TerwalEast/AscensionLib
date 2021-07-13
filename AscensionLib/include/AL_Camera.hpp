@@ -13,15 +13,18 @@
 #include "STG.hpp"
 #include "Util.hpp"
 
-class AL_VisibleObject;
 
-//Camera的Flag类。因为这些Flag肯定不重叠/同时使用，因此做成更为简单明了的Enum。
-//这样的话编辑器也更容易高亮。
+
+
+namespace AscensionLib {
+class AL_VisibleObject;
 enum class CameraMovementMethod
 {
     teleport,
     linear
 };
+
+
 
 
 class AL_Camera
@@ -70,5 +73,10 @@ private:
     
     
 };
+}
+
+//Camera的Flag类。因为这些Flag肯定不重叠/同时使用，因此做成更为简单明了的Enum。
+//这样的话编辑器也更容易高亮。
+
 
 #endif /* Camera_hpp */

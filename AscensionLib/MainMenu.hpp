@@ -23,11 +23,11 @@
 class MainMenu;
 
 //菜单选项。就是例如“Start Game”、“Option”这样的一个选项。
-class MenuSelection : AL_VisibleObject
+class MenuSelection : AscensionLib::AL_VisibleObject
 {
 public:
     
-    MenuSelection(string targetNormalTextureID, string targetHighlightTextureID, AscensionLib::Rectangle renderTargetArea, Rectangle clipArea, MainMenu* pMenu);
+    MenuSelection(AL_Texture* normalTexture, AL_Texture* highlightTexture, AscensionLib::Rectangle renderTargetArea, AscensionLib::Rectangle clipArea, MainMenu* pMenu);
     ~MenuSelection()
     {
         
@@ -51,10 +51,10 @@ private:
     
     AscensionLib::Rectangle _renderTargetArea;
     AscensionLib::Rectangle _clipArea;
-    AL_Texture* _ptargetNormalTexture;
-    AL_Texture* _ptargetHightLightTexture;
-    
+    AscensionLib::AL_Texture* _ptargetNormalTexture;
+    AscensionLib::AL_Texture* _ptargetHightLightTexture;
     MainMenu* _pMyMenu;
+    bool _isSelected;
 };
 
 class MainMenu
@@ -74,11 +74,11 @@ public:
 private:
     
     //坐着的.jpg
-    AL_Texture* _pTextureMenuBackground;
+    AscensionLib::AL_Texture* _pTextureMenuBackground;
     std::vector<MenuSelection> _selectionVector;
     
-    AL_Texture* _pTextNormalTexture;
-    AL_Texture* _pTextHighlightTexture;
+    AscensionLib::AL_Texture* _pTextNormalTexture;
+    AscensionLib::AL_Texture* _pTextHighlightTexture;
     
     
     

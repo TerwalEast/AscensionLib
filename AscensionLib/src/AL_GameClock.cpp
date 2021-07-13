@@ -37,6 +37,7 @@
 //
 //};
 
+using namespace AscensionLib;
 
 uint64_t AL_GameClock::CurrentTick;
 uint64_t AL_GameClock::LastTick;

@@ -11,7 +11,7 @@
 
 
 
-
+namespace AscensionLib {
 constexpr int gl_major_version = 4;
 constexpr int gl_minor_version = 1;
 constexpr bool gl_debug = true;
@@ -33,7 +33,7 @@ void Init_SDL_GL()
 
 
 
-void AL_Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
+void Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
 {
     //初始化SDL
     if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
@@ -76,6 +76,9 @@ void AL_Game::InitGame(std::string windowTitle, uint32_t width, uint32_t height)
     
     
 }
+}
+
+
 
 
 

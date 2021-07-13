@@ -105,8 +105,8 @@ void GameManager::InitGame()
     title = "Demo";
     //AL_Window::InitWindow(title, 800, 600);
     
-    Game::InitGame(title, 600, 400);
-    AL_GameClock::InitClock();
+    AscensionLib::Game::InitGame(title, 600, 400);
+    AscensionLib::AL_GameClock::InitClock();
     
     //AL_Window::SetLogicalResolution(1600, 900);
     

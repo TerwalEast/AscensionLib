@@ -20,10 +20,11 @@ A AL_Texture is a local warped SDL_Texture, to support object-oriented programmi
 Please note that texture should be used to store 2^ size graphic resources, otherwise the graphic memory is wasted. Make atlas before loading as actual textures, and render them with clip method.
  */
 
-class AL_Camera;
+
 
 
 namespace AscensionLib {
+class AL_Camera;
 class AL_Texture
 {
 public:
@@ -45,9 +46,9 @@ public:
     bool Load(std::string path);
     
     /**
-     *用历史模式读取材质。应付那些古老的、在主材质中没有Alpha通道而另外附带一张材质作为Alpha通道的材质。
+     *用遮罩模式读取材质。
      */
-    bool LoadLegacy(std::string texturePath, std::string alphaPath);
+    bool LoadWithMask(std::string sourceImagePath,std::string maskImagePath);
     
     //-------------------------
 
@@ -65,9 +66,6 @@ public:
     //在摄像机上渲染,x/y为其中心坐标
     void RenderToCamera(float x, float y,AL_Camera targetCamera);
     
-    
-    
-    
     void SetAlphaMode(uint alpha);
     
     SDL_Texture* GetSDLTexture()
@@ -75,14 +73,11 @@ public:
         return _pTargetTexture.get();
     }
     
-    
 private:
     
     //被封装的实际SDL材质
     //SDL_Texture *_pTargetTexture;
     std::shared_ptr<SDL_Texture> _pTargetTexture ;
-    
-    
     
 };}
 

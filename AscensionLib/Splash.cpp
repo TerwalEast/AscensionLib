@@ -15,8 +15,8 @@ Splash::Splash()
 {
     string id = SPLASH_TEXTURE_ID;
     string filePath = SPLASH_FILE_PATH;
-    AL_ResourceManager::LoadTexture(filePath, id);
-    _SplashTexture = AL_ResourceManager::GetTextureByID(id);
+    AscensionLib::AL_ResourceManager::LoadTexture(filePath, id);
+    _SplashTexture = AscensionLib::AL_ResourceManager::GetTextureByID(id);
 }
 void Splash::SplashLoop()
 {
@@ -27,9 +27,9 @@ void Splash::SplashLoop()
     int alpha = 0;
     double timeStack = 0;
 
-    AL_GameClock::UpdateTime();
-    AL_GameClock::GetElapsedTime();
-    AL_Window::SetBackgroundColour(255, 255, 255, 255);
+    AscensionLib::AL_GameClock::UpdateTime();
+    AscensionLib::AL_GameClock::GetElapsedTime();
+    AscensionLib::AL_Window::SetBackgroundColour(255, 255, 255, 255);
 
     //淡入
     while( !quit )
@@ -45,11 +45,11 @@ void Splash::SplashLoop()
         }
 
         //涂个白色（0xFF,0xFF,0xFF）透明（0xFF）底。之前设置了Texture混合模式为Blend，这个底将会和我们的材质Blend达到渐变效果
-        AL_Window::ClearWindow();
+        AscensionLib::AL_Window::ClearWindow();
 
         //调用钟表获取时间，根据时间改变当前的状态
-        AL_GameClock::UpdateTime();
-        timeStack += AL_GameClock::GetElapsedTime();
+        AscensionLib::AL_GameClock::UpdateTime();
+        timeStack += AscensionLib::AL_GameClock::GetElapsedTime();
         alpha = floor(timeStack / 2.0 * 255);
 
         _SplashTexture->SetAlphaMode(alpha);
@@ -59,14 +59,14 @@ void Splash::SplashLoop()
 
 
         //更新屏幕
-        AL_Window::ShowCurrent();
+        AscensionLib::AL_Window::ShowCurrent();
 
         if(timeStack >= 2) break;
 
     }
     //保持
     timeStack = 0;
-    AL_GameClock::UpdateTime();
+    AscensionLib::AL_GameClock::UpdateTime();
     while( !quit )
     {
         while( SDL_PollEvent( &e ) != 0 )
@@ -77,8 +77,8 @@ void Splash::SplashLoop()
                 quit = true;
             }
         }
-        AL_GameClock::UpdateTime();
-        timeStack += AL_GameClock::GetElapsedTime();
+        AscensionLib::AL_GameClock::UpdateTime();
+        timeStack += AscensionLib::AL_GameClock::GetElapsedTime();
         if(timeStack >= 1) break;
     }
     //淡出
@@ -95,11 +95,11 @@ void Splash::SplashLoop()
         }
 
         //Clear screen
-        AL_Window::ClearWindow();
+        AscensionLib::AL_Window::ClearWindow();
 
         //调用钟表获取时间，根据时间改变当前的状态
-        AL_GameClock::UpdateTime();
-        timeStack += AL_GameClock::GetElapsedTime();
+        AscensionLib::AL_GameClock::UpdateTime();
+        timeStack += AscensionLib::AL_GameClock::GetElapsedTime();
         alpha = 255 - floor(timeStack / 2.0 * 255);
 
         _SplashTexture->SetAlphaMode(alpha);
@@ -108,7 +108,7 @@ void Splash::SplashLoop()
         _SplashTexture->DirectRender();
 
         //更新屏幕
-        AL_Window::ShowCurrent();
+        AscensionLib::AL_Window::ShowCurrent();
 
         if(timeStack >= 2) break;
 
@@ -122,5 +122,5 @@ void Splash::SplashLoop()
 void Splash::_destorySplashTexture()
 {
     string id = SPLASH_TEXTURE_ID;
-    AL_ResourceManager::ClearFromTextureMap(id);
+    AscensionLib::AL_ResourceManager::ClearFromTextureMap(id);
 }
