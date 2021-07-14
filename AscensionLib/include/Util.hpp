@@ -9,11 +9,11 @@
 #ifndef Util_hpp
 #define Util_hpp
 
-#include <stdio.h>
 #include "STG.hpp"
-#include <memory>
 
 namespace AscensionLib {
+
+
 
 
 
@@ -137,10 +137,7 @@ private:
 };
 
 
-
-
-
-
+bool AL_Collision(Vector2D point, Rectangle rect);
 
 }
 

@@ -9,7 +9,6 @@
 #ifndef AL_Game_hpp
 #define AL_Game_hpp
 
-#include <stdio.h>
 #include "STG.hpp"
 
 class AL_Window;

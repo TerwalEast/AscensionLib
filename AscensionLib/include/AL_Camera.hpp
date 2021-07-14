@@ -9,7 +9,7 @@
 #ifndef Camera_hpp
 #define Camera_hpp
 
-#include <stdio.h>
+
 #include "STG.hpp"
 #include "Util.hpp"
 

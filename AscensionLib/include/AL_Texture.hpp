@@ -9,10 +9,8 @@
 #ifndef AL_Texture_hpp
 #define AL_Texture_hpp
 
-#include <stdio.h>
 #include "STG.hpp"
 #include "Util.hpp"
-#include <memory>
 
 
 /*

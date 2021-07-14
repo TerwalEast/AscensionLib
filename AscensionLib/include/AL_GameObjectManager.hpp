@@ -10,7 +10,7 @@
 #define gameObjectManager_hpp
 
 #include "STG.hpp"
-#include <vector>
+
 
 
 using namespace std;

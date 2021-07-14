@@ -11,7 +11,7 @@
 
 #include "STG.hpp"
 #include "Util.hpp"
-#include <vector>
+
 
 namespace AscensionLib {
 enum mouse_buttons

@@ -9,13 +9,7 @@
 #ifndef AL_Window_hpp
 #define AL_Window_hpp
 
-#include <stdio.h>
 #include "STG.hpp"
-#include <string>
-
-
-
-
 
 
 namespace AscensionLib {

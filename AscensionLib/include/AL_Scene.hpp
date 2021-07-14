@@ -9,6 +9,4 @@
 #ifndef AL_Scene_hpp
 #define AL_Scene_hpp
 
-#include <stdio.h>
-
 #endif /* AL_Scene_hpp */
