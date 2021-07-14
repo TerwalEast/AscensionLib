@@ -26,7 +26,7 @@ class AL_InputHandler
 public:
 
     std::vector<bool> m_mouseButtonStates;
-    AL_Vector2D* m_mousePosition;
+    Vector2D* m_mousePosition;
 
     
     static AL_InputHandler& GetInputHandler()
@@ -54,7 +54,7 @@ public:
 
     // mouse events
     bool getMouseButtonState(int buttonNumber) const;
-    AL_Vector2D* getMousePosition() const;
+    Vector2D* getMousePosition() const;
 
 private:
 
@@ -84,7 +84,7 @@ private:
 
     const Uint8* m_keystates;
 
-    std::vector<std::pair<AL_Vector2D*, AL_Vector2D*>> m_joystickValues;
+    std::vector<std::pair<Vector2D*, Vector2D*>> m_joystickValues;
     std::vector<SDL_Joystick*> m_joysticks;
     std::vector<std::vector<bool>> m_buttonStates;
     bool m_bJoysticksInitialised;

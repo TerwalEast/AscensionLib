@@ -86,6 +86,7 @@ void GameManager :: _menuLoop()
 {
     MainMenu mainMenu;
     mainMenu.MainMenuLoop();
+    _gameState = Exiting;
 }
 
 
@@ -107,7 +108,7 @@ void GameManager::InitGame()
     
     AscensionLib::Game::InitGame(title, 600, 400);
     AscensionLib::AL_GameClock::InitClock();
-    
+    AscensionLib::AL_InputHandler::GetInputHandler().Update();
     //AL_Window::SetLogicalResolution(1600, 900);
     
     

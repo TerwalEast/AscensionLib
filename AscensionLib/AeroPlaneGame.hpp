@@ -19,6 +19,7 @@
 #include "include/AL_GameObjectManager.hpp"
 #include "include/Game.hpp"
 #include "include/AL_ResourceManager.hpp"
+#include "include/AL_InputHandler.hpp"
 
 #define SPLASH_TEXTURE_ID "splash_texture"
 #define SPLASH_FILE_PATH "EoSD/th06logo.jpg"

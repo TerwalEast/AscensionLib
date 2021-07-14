@@ -8,6 +8,8 @@
 
 #include "MainMenu.hpp"
 
+using namespace AscensionLib;
+
 void MenuSelection::Draw()
 {
     if(_isSelected)
@@ -22,7 +24,7 @@ void MenuSelection::Draw()
 
 
 
-MenuSelection::MenuSelection(AL_Texture* normalTexture, AL_Texture* highlightTexture, AscensionLib::Rectangle renderTargetArea, AscensionLib::Rectangle clipArea, MainMenu* pMenu)
+MenuSelection::MenuSelection(AscensionLib::AL_Texture* normalTexture,AscensionLib::AL_Texture* highlightTexture, AscensionLib::Rectangle renderTargetArea, AscensionLib::Rectangle clipArea, MainMenu* pMenu)
 {
     _pMyMenu = pMenu;
     _renderTargetArea = renderTargetArea;
@@ -30,13 +32,6 @@ MenuSelection::MenuSelection(AL_Texture* normalTexture, AL_Texture* highlightTex
     _ptargetNormalTexture = normalTexture;
     _ptargetHightLightTexture = highlightTexture;
     _isSelected = false;
-    
-}
-
-void MenuSelection::Update()
-{
-    
-    
     
 }
 
@@ -49,6 +44,7 @@ void MainMenu::MainMenuLoop()
     
     while(!quit)
     {
+        AscensionLib::AL_InputHandler::GetInputHandler().Update();
         AscensionLib::AL_Window::ClearWindow();
         _pTextureMenuBackground->DirectRender();
         AscensionLib::AL_Window::ShowCurrent();

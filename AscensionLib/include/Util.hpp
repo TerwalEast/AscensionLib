@@ -42,6 +42,9 @@ public:
     const double GetX();
     const double GetY();
     
+    float x;
+    float y;
+    
     Vector2D()
     {
         
@@ -72,8 +75,7 @@ public:
     
 private:
     
-    float x;
-    float y;
+    
     //SDL_Point* convertToSDLPoint();
 };
 

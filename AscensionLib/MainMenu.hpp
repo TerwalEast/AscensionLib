@@ -27,7 +27,7 @@ class MenuSelection : AscensionLib::AL_VisibleObject
 {
 public:
     
-    MenuSelection(AL_Texture* normalTexture, AL_Texture* highlightTexture, AscensionLib::Rectangle renderTargetArea, AscensionLib::Rectangle clipArea, MainMenu* pMenu);
+    MenuSelection(AscensionLib::AL_Texture* normalTexture,AscensionLib::AL_Texture* highlightTexture, AscensionLib::Rectangle renderTargetArea, AscensionLib::Rectangle clipArea, MainMenu* pMenu);
     ~MenuSelection()
     {
         

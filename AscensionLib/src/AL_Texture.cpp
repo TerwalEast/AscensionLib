@@ -19,7 +19,12 @@ void AscensionLib::AL_Texture::DirectRender()
 
 void AscensionLib::AL_Texture::DirectRender(Rectangle targetRect, Rectangle clipRect)
 {
-    SDL_RenderCopy(AL_Window::_pRenderer, _pTargetTexture.get(), clipRect.getSDLRect(), targetRect.getSDLRect());
+    SDL_Rect clip = clipRect.getSDLRect();
+    SDL_Rect target = targetRect.getSDLRect();
+    
+    SDL_RenderCopy(AL_Window::_pRenderer, _pTargetTexture.get(), &clip, &target);
+    
+    
 }
 
 
@@ -92,7 +97,7 @@ bool AscensionLib::AL_Texture::LoadWithMask(std::string sourceImagePath, std::st
         return false;
     }
     
-    SDL_Texture* result = SDL_CreateTexture(renderer, DL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, xMask, yMask);
+    SDL_Texture* result = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, xMask, yMask);
     SDL_SetRenderTarget(renderer, result);
     
     SDL_SetTextureBlendMode(result, SDL_BLENDMODE_BLEND);

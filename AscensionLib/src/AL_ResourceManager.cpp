@@ -56,7 +56,7 @@ AL_Texture* AL_ResourceManager::LoadTextureWithMask(std::string textureFilePath,
 {
     std::map<std::string, AL_Texture>::iterator it;
     AL_Texture tempTexture;
-    if( ! tempTexture.LoadWithMask( _resourcePath + filePath , _resourcePath + alphaFilePath) )  //材质加载不成功时
+    if( ! tempTexture.LoadWithMask( _resourcePath + textureFilePath , _resourcePath + alphaFilePath) )  //材质加载不成功时
     {
         return nullptr;
     }
